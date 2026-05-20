@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getCollection } from 'astro:content';
+
+const blog = await getCollection('blog', ({ data }) => !data.draft);
+const guides = await getCollection('guides', ({ data }) => !data.draft);
+
+const counts = new Map<string, number>();
+for (const p of [...blog, ...guides]) {
+  for (const t of p.data.tags) counts.set(t, (counts.get(t) ?? 0) + 1);
+}
+const tags = [...counts.entries()].sort((a, b) => b[1] - a[1]);
+
+const crumbs = [
+  { name: '首页', href: '/' },
+  { name: '标签', href: '/tags/' },
+];
+---
+<BaseLayout
+  title="标签云 - Telegram 中文下载与教程标签"
+  description="通过标签快速浏览 Telegram（纸飞机）相关下载、中文设置与使用技巧内容。"
+  keywords={['telegram标签','telegram下载','纸飞机']}
+  noindex={true}
+>
+  <Breadcrumbs items={crumbs} />
+  <section class="container-page pt-8">
+    <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">标签云</h1>
+    <p class="mt-4 max-w-2xl text-base leading-7 text-slate-600">点击标签查看相关 Telegram 中文教程与文章。</p>
+  </section>
+  <section class="container-page section-tight">
+    {tags.length === 0 ? (
+      <p class="text-slate-500">暂无标签。</p>
+    ) : (
+      <div class="flex flex-wrap gap-3">
+        {tags.map(([t, n]) => (
+          <a
+            href={`/tags/${encodeURIComponent(t)}/`}
+            class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 no-underline hover:border-tg-300 hover:text-tg-700"
+            style={`font-size:${Math.min(1.05 + n * 0.06, 1.4)}rem`}
+          >
+            #{t}<span class="text-xs text-slate-400">{n}</span>
+          </a>
+        ))}
+      </div>
+    )}
+  </section>
+  <div class="h-16"></div>
+</BaseLayout>

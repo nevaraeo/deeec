@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import Cta from '../../components/Cta.astro';
+import { getCollection } from 'astro:content';
+
+const guides = (await getCollection('guides', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+
+const title = 'Telegram 安装教程大全 - 各平台中文设置图文指南';
+const description =
+  'Telegram（纸飞机）安装与中文设置教程：Windows 电脑版、安卓 APK、iOS、Mac、Linux 分步图文指南，新手也能一次成功。';
+const crumbs = [
+  { name: '首页', href: '/' },
+  { name: '教程', href: '/guides/' },
+];
+---
+<BaseLayout title={title} description={description} keywords={['telegram安装教程','telegram中文设置教程','纸飞机怎么用','telegram下载教程']}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container-page pt-8">
+    <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Telegram 安装与中文设置教程</h1>
+    <p class="mt-4 max-w-2xl text-base leading-7 text-slate-600">
+      各平台 Telegram（纸飞机）下载、安装与简体中文设置的分步图文教程。
+    </p>
+  </section>
+
+  <section class="container-page section-tight">
+    {guides.length === 0 ? (
+      <p class="text-slate-500">暂无教程。</p>
+    ) : (
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {guides.map((g) => (
+          <ArticleCard
+            href={`/guides/${g.id}/`}
+            title={g.data.title}
+            description={g.data.description}
+            category={g.data.category}
+            date={g.data.pubDate}
+            tags={g.data.tags}
+          />
+        ))}
+      </div>
+    )}
+  </section>
+
+  <div class="mt-16"><Cta /></div>
+  <div class="h-16"></div>
+</BaseLayout>

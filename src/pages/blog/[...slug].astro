@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const d = post.data;
+const { Content, headings } = await render(post);
+const readingMinutes = Math.max(1, Math.round((post.body?.length ?? 0) / 400));
+
+const crumbs = [
+  { name: '首页', href: '/' },
+  { name: '博客', href: '/blog/' },
+  { name: d.title, href: `/blog/${post.id}/` },
+];
+const related = [
+  { label: 'Telegram 电脑版下载', href: '/windows/' },
+  { label: 'Telegram 安卓 APK 下载', href: '/android/' },
+  { label: 'Telegram 中文设置教程', href: '/guides/telegram-chinese-language-pack/' },
+  { label: '常见问题 FAQ', href: '/faq/' },
+];
+---
+<ArticleLayout
+  title={d.title}
+  description={d.description}
+  h1={d.title}
+  pubDate={d.pubDate}
+  updatedDate={d.updatedDate}
+  author={d.author}
+  category={d.category}
+  readingMinutes={readingMinutes}
+  tags={d.tags}
+  crumbs={crumbs}
+  faqs={d.faqs}
+  related={related}
+  keywords={d.tags}
+  headings={headings}
+  articleType="BlogPosting"
+>
+  <Content />
+</ArticleLayout>

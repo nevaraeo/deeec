@@ -1,0 +1,40 @@
+---
+import JsonLd from './JsonLd.astro';
+import { SITE } from '../data/site';
+
+interface Props {
+  name: string;
+  os: string;
+  description: string;
+  version?: string;
+  fileSize?: string;
+  url: string;
+}
+const { name, os, description, version, fileSize, url } = Astro.props;
+
+// SoftwareApplication + DownloadAction，强化“可下载软件”实体
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name,
+  alternateName: ['Telegram', '纸飞机', '飞机', 'Telegram 中文版'],
+  applicationCategory: 'CommunicationApplication',
+  operatingSystem: os,
+  description,
+  url: new URL(url, SITE.url).href,
+  softwareVersion: version,
+  fileSize,
+  inLanguage: 'zh-CN',
+  isAccessibleForFree: true,
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Telegram FZ-LLC',
+  },
+};
+---
+<JsonLd schema={schema} />

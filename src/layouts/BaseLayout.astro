@@ -1,0 +1,75 @@
+---
+import '../styles/global.css';
+import { SITE } from '../data/site';
+import SEO from '../components/SEO.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import JsonLd from '../components/JsonLd.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  keywords?: string[];
+  publishedTime?: string;
+  modifiedTime?: string;
+}
+const {
+  title,
+  description,
+  image,
+  type = 'website',
+  noindex = false,
+  keywords = [],
+  publishedTime,
+  modifiedTime,
+} = Astro.props;
+
+// 全站 WebSite + Organization 实体（GEO / 知识图谱友好）
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.name,
+  url: SITE.url,
+  inLanguage: 'zh-CN',
+  description: SITE.description,
+  publisher: {
+    '@type': 'Organization',
+    name: SITE.publisher.name,
+    url: SITE.publisher.url,
+  },
+};
+---
+<!doctype html>
+<html lang={SITE.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#229ed9" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title={`${SITE.name} RSS`} href="/rss.xml" />
+    <SEO
+      title={title}
+      description={description}
+      image={image}
+      type={type}
+      noindex={noindex}
+      keywords={keywords}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+    />
+    <JsonLd schema={orgSchema} />
+    <slot name="head" />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:shadow">跳到主内容</a>
+    <Header />
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

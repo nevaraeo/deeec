@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PlatformGrid from '../../components/PlatformGrid.astro';
+import Section from '../../components/Section.astro';
+import FaqList from '../../components/FaqList.astro';
+import FaqSchema from '../../components/FaqSchema.astro';
+import Cta from '../../components/Cta.astro';
+import Icon from '../../components/Icon.astro';
+import { CORE_FAQS } from '../../data/faqs';
+import { MATRIX } from '../../data/matrix';
+import { KEYWORD_LIST } from '../../data/keywords';
+
+const title = 'Telegram下载中心 - 全平台官方安全入口汇总';
+const description =
+  'Telegram（纸飞机）下载中心：汇总 Windows 电脑版、安卓 APK、iOS、Mac、Linux 官方下载入口，以及 Windows 11/10、Android 15、iOS 18 等系统专版安装教程。';
+const crumbs = [
+  { name: '首页', href: '/' },
+  { name: '下载中心', href: '/downloads/' },
+];
+const byPlatform = (p: string) => MATRIX.filter((m) => m.platform === p);
+const groups = [
+  { key: 'windows', label: 'Windows 电脑版' },
+  { key: 'android', label: '安卓 Android' },
+  { key: 'ios', label: 'iOS / iPhone' },
+  { key: 'mac', label: 'Mac' },
+  { key: 'linux', label: 'Linux' },
+];
+---
+<BaseLayout title={title} description={description} keywords={['telegram下载','telegram中文版下载','telegram电脑版下载','telegram安卓下载','纸飞机下载']}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container-page pt-8">
+    <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Telegram 下载中心</h1>
+    <p class="mt-4 max-w-2xl text-base leading-7 text-slate-600">
+      一站汇总 Telegram（纸飞机 / 飞机）各平台官方下载入口与系统专版安装教程，全部直连 telegram.org 官方源。
+    </p>
+  </section>
+
+  <Section eyebrow="主平台" title="按设备下载" tight>
+    <PlatformGrid />
+  </Section>
+
+  <Section eyebrow="Programmatic SEO" title="按系统版本选择（长尾专版）" lead="针对具体系统版本的安装说明，内容差异化，覆盖更多长尾搜索。">
+    <div class="space-y-8">
+      {groups.map((g) => (
+        <div>
+          <h3 class="flex items-center gap-2 text-base font-semibold text-slate-900">{g.label}</h3>
+          <div class="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {byPlatform(g.key).map((m) => (
+              <a href={`/telegram-download-for-${m.combo}/`} class="group flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 no-underline hover:border-tg-300 hover:text-tg-700">
+                <span>Telegram {m.osVersion} 下载</span>
+                <Icon name="arrow" class="h-4 w-4 shrink-0 text-slate-400 transition-transform group-hover:translate-x-0.5 group-hover:text-tg-600" />
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <Section eyebrow="中文版 / 纸飞机" title="关键词专题页" tight>
+    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {KEYWORD_LIST.map((k) => (
+        <a href={k.slug} class="group flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 no-underline hover:border-tg-300 hover:text-tg-700">
+          <span>{k.h1.split('：')[0]}</span>
+          <Icon name="arrow" class="h-4 w-4 shrink-0 text-slate-400 transition-transform group-hover:translate-x-0.5 group-hover:text-tg-600" />
+        </a>
+      ))}
+    </div>
+  </Section>
+
+  <FaqList faqs={CORE_FAQS} />
+  <div class="mt-16"><Cta /></div>
+  <div class="h-16"></div>
+  <FaqSchema faqs={CORE_FAQS} />
+</BaseLayout>

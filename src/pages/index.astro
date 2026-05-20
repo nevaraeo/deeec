@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import PlatformGrid from '../components/PlatformGrid.astro';
+import Section from '../components/Section.astro';
+import FaqList from '../components/FaqList.astro';
+import FaqSchema from '../components/FaqSchema.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Cta from '../components/Cta.astro';
+import JsonLd from '../components/JsonLd.astro';
+import Icon from '../components/Icon.astro';
+import { SITE, SEMANTIC_ANCHOR } from '../data/site';
+import { CORE_FAQS } from '../data/faqs';
+import { PLATFORM_LIST } from '../data/platforms';
+import { KEYWORD_LIST } from '../data/keywords';
+import { getCollection } from 'astro:content';
+
+const blog = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 3);
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Telegram 各平台下载',
+  itemListElement: PLATFORM_LIST.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: p.name,
+    url: new URL(p.slug, SITE.url).href,
+  })),
+};
+
+const seoLinks = KEYWORD_LIST.map((k) => ({ label: k.h1.split('：')[0], href: k.slug }));
+---
+<BaseLayout title={SITE.title} description={SITE.description} keywords={[...SITE.keywords]}>
+  <Hero />
+
+  <Section
+    id="downloads"
+    eyebrow="按平台下载"
+    title="选择你的设备，立即下载 Telegram 中文版"
+    lead="Windows 电脑版、安卓 APK、iOS、Mac、Linux —— 全部指向 telegram.org 官方源，安全无捆绑。"
+  >
+    <PlatformGrid />
+  </Section>
+
+  <Section eyebrow="关于 Telegram" title="Telegram 是什么？为什么中文叫“纸飞机”">
+    <div class="grid gap-10 lg:grid-cols-2">
+      <div class="article">
+        <p>{SEMANTIC_ANCHOR}它支持私密聊天、超大群组（最多 20 万人）、频道广播、文件传输（单文件最高 2GB）以及端到端加密的“秘密聊天”。</p>
+        <p>由于 Telegram 的应用图标是一架蓝色<strong>纸飞机</strong>，中文用户口口相传称它为<strong>“纸飞机”</strong>，也有人简称<strong>“飞机”</strong>。因此“纸飞机下载”“飞机下载”“Telegram 下载”指的是<strong>同一个官方应用</strong>。</p>
+        <p>本站（telegrams.ltd）是 Telegram 中文下载导航，只收录官方下载源，并提供简体中文设置教程。</p>
+      </div>
+      <div class="article">
+        <h2 class="!mt-0">关于“Telegram 中文版”</h2>
+        <p>Telegram 官方没有单独的“中文版安装包”。所谓 <strong>Telegram 中文版</strong>，是指安装官方原版后，应用<strong>官方简体中文语言包</strong>，使界面完整中文化。</p>
+        <ul>
+          <li>官方原版 + 官方语言包 = 完整中文且安全</li>
+          <li>无需任何第三方汉化补丁或破解版</li>
+          <li>电脑 / 安卓 / iOS / Mac / Linux 设置方法一致</li>
+        </ul>
+        <p><a href="/telegram-chinese/">→ 查看 Telegram 中文版完整说明</a></p>
+      </div>
+    </div>
+  </Section>
+
+  <Section eyebrow="为什么选择本站" title="安全、官方、快速">
+    <div class="grid gap-4 sm:grid-cols-3">
+      {[
+        { i: 'shield', t: '官方源下载', d: '所有下载按钮直连 telegram.org，杜绝二次打包、捆绑插件与盗号风险。' },
+        { i: 'bolt', t: '极速静态站', d: '纯静态 HTML 输出 + 边缘缓存，页面秒开，Core Web Vitals 优秀。' },
+        { i: 'globe', t: '中文教程齐全', d: '各平台安装、简体中文设置、常见问题一站式解决。' },
+      ].map((c) => (
+        <div class="card">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-tg-50 text-tg-600"><Icon name={c.i as any} class="h-5 w-5" /></span>
+          <h3 class="mt-4 text-base font-semibold text-slate-900">{c.t}</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">{c.d}</p>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  {blog.length > 0 && (
+    <Section eyebrow="教程推荐" title="最新中文教程与博客">
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {blog.map((post) => (
+          <ArticleCard
+            href={`/blog/${post.id}/`}
+            title={post.data.title}
+            description={post.data.description}
+            category={post.data.category}
+            date={post.data.pubDate}
+            tags={post.data.tags}
+          />
+        ))}
+      </div>
+      <div class="mt-8"><a href="/blog/" class="btn btn-ghost">查看全部博客 <Icon name="arrow" class="h-4 w-4" /></a></div>
+    </Section>
+  )}
+
+  <FaqList faqs={CORE_FAQS} title="Telegram 下载常见问题" />
+
+  <RelatedLinks title="热门关键词页面" links={seoLinks} />
+
+  <div class="mt-16"><Cta /></div>
+  <div class="h-16"></div>
+
+  <FaqSchema faqs={CORE_FAQS} />
+  <JsonLd schema={itemListSchema} />
+</BaseLayout>
