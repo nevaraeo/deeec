@@ -4,13 +4,35 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guides', ({ data }) => !data.draft);
-  return guides.map((g) => ({ params: { slug: g.id }, props: { g } }));
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  const pool = [
+    ...guides.map((e) => ({ type: 'guides' as const, e })),
+    ...posts.map((e) => ({ type: 'blog' as const, e })),
+  ];
+  return guides.map((g) => ({ params: { slug: g.id }, props: { g, pool } }));
 }
 
-const { g } = Astro.props;
+const { g, pool } = Astro.props;
 const d = g.data;
 const { Content, headings } = await render(g);
 const readingMinutes = Math.max(1, Math.round((g.body?.length ?? 0) / 400));
+
+// 相关文章：按共享标签匹配，排除自身
+const myTags = new Set(d.tags);
+const relatedPosts = pool
+  .filter((x) => !(x.type === 'guides' && x.e.id === g.id))
+  .map((x) => ({ x, score: x.e.data.tags.filter((t) => myTags.has(t)).length }))
+  .filter((r) => r.score > 0)
+  .sort((a, b) => b.score - a.score || b.x.e.data.pubDate.getTime() - a.x.e.data.pubDate.getTime())
+  .slice(0, 3)
+  .map((r) => ({
+    href: `/${r.x.type}/${r.x.e.id}/`,
+    title: r.x.e.data.title,
+    description: r.x.e.data.description,
+    category: r.x.e.data.category,
+    date: r.x.e.data.pubDate,
+    tags: r.x.e.data.tags,
+  }));
 
 const crumbs = [
   { name: '首页', href: '/' },
@@ -37,6 +59,7 @@ const related = [
   crumbs={crumbs}
   faqs={d.faqs}
   related={related}
+  relatedPosts={relatedPosts}
   keywords={d.tags}
   headings={headings}
   articleType="TechArticle"
