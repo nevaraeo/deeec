@@ -23,10 +23,7 @@ export const GET: APIRoute = async () => {
   // Programmatic 长尾页
   MATRIX.forEach((m) => paths.push(`/telegram-download-for-${m.combo}/`));
 
-  // 内容集合
-  const downloads = await getCollection('downloads');
-  downloads.forEach((d) => paths.push(`/downloads/${d.id}/`));
-
+  // 内容集合（下载详情页与平台页重复、已 noindex，不收录）
   const blog = await getCollection('blog', ({ data }) => !data.draft);
   blog.forEach((b) => paths.push(`/blog/${b.id}/`));
 

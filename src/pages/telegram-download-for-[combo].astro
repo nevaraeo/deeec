@@ -25,12 +25,17 @@ const crumbs = [
   { name: m.osVersion, href: `/telegram-download-for-${m.combo}/` },
 ];
 
+// 同平台其它系统版本互链（构建版本集群，消除长尾页低入站内链）
+const siblings = MATRIX.filter((x) => x.platform === m.platform && x.combo !== m.combo).map((x) => ({
+  label: `Telegram ${x.osVersion} 下载`,
+  href: `/telegram-download-for-${x.combo}/`,
+}));
+
 const related = [
   { label: `${base.shortName}下载主页`, href: base.slug },
+  ...siblings,
   { label: 'Telegram 中文版下载', href: '/telegram-chinese-download/' },
-  { label: '纸飞机下载', href: '/paper-airplane-download/' },
   { label: 'Telegram 中文设置教程', href: '/guides/telegram-chinese-language-pack/' },
-  { label: '常见问题 FAQ', href: '/faq/' },
   { label: '全部下载入口', href: '/downloads/' },
 ];
 ---

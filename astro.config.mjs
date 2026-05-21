@@ -23,8 +23,11 @@ export default defineConfig({
     sitemap({
       changefreq: 'weekly',
       lastmod: new Date(),
-      // 排除 404 与薄标签页（标签页已 noindex，不应进 sitemap）
-      filter: (page) => !page.includes('/404') && !page.includes('/tags'),
+      // 排除 404、薄标签页、与平台页重复的下载详情页（均 noindex，不应进 sitemap）
+      filter: (page) =>
+        !page.includes('/404') &&
+        !page.includes('/tags') &&
+        !page.includes('/downloads/telegram-'),
       serialize(item) {
         const u = item.url;
         if (u === `${SITE}/`) item.priority = 1.0;

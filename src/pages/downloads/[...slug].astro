@@ -24,7 +24,7 @@ const crumbs = [
   { name: d.title, href: `/downloads/${entry.id}/` },
 ];
 ---
-<BaseLayout title={d.title} description={d.description} keywords={d.keywords} type="article">
+<BaseLayout title={d.title} description={d.description} keywords={d.keywords} type="article" noindex={true}>
   <Breadcrumbs items={crumbs} />
 
   <section class="container-page pt-8">
