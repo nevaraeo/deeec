@@ -7,7 +7,7 @@ export const SITE = {
   name: 'Telegram中文下载',
   domain: 'telegrams.ltd',
   url: 'https://telegrams.ltd',
-  title: 'Telegram下载｜电脑版·安卓·iOS·Mac 客户端',
+  title: 'Telegram官方下载｜电脑版安卓iOS客户端',
   description:
     'Telegram 下载官方源导航：获取 Telegram Windows 电脑版、安卓 APK、iOS、Mac、Linux 官方客户端，所有下载均直连 telegram.org 官方源，安全无捆绑、完全免费，支持多端云端同步。',
   defaultOgImage: '/og-default.png',
