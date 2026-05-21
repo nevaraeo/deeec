@@ -1,6 +1,6 @@
 ---
 title: Telegram iOS 下载（iPhone / iPad）
-description: Telegram iOS 版下载说明，通过 App Store 安装 iPhone / iPad 官方客户端，含简体中文设置方法。纸飞机 iOS 版即 Telegram 官方应用。
+description: Telegram iOS 官方下载说明：经 App Store 安装 iPhone / iPad 客户端，兼容 iOS 15 及以上，账号云端同步、多端互通，附简体中文设置步骤。纸飞机 iOS 版即官方 Telegram 应用。
 platform: ios
 osLabel: iOS / iPadOS 15.0 及以上
 version: "11.2"

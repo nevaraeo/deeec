@@ -1,6 +1,6 @@
 ---
 title: Telegram Linux 下载（含 Snap / Flatpak）
-description: Telegram Linux 版下载说明，提供官方静态二进制 tar.xz 以及 Snap、Flatpak 安装方式，含简体中文设置方法。
+description: Telegram Linux 官方下载说明：官方静态二进制 tar.xz 及 Snap、Flatpak 安装方式，兼容 Ubuntu / Debian / Fedora / Arch 等主流发行版，附简体中文设置与命令行示例。
 platform: linux
 osLabel: 64 位 Linux（glibc 2.31+）
 version: 5.12.3

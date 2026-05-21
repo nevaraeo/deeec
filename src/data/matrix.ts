@@ -160,7 +160,7 @@ export const MATRIX: MatrixEntry[] = RAW.map((r) => {
     osVersion: r.osVersion,
     h1: `Telegram ${r.osVersion} 下载｜${p.shortName}中文版安装教程`,
     title: `Telegram ${r.titleOs ?? r.osVersion} 下载 - ${p.shortName}中文版安装`,
-    description: `${r.osVersion} 上的 Telegram（纸飞机）下载与中文设置：官方安全入口 + 分步安装教程。${r.highlight}`,
+    description: `Telegram ${r.titleOs ?? r.osVersion} 下载与简体中文设置权威指南：官方安全下载入口 + 分步安装教程。${r.highlight}`,
     keywords: [
       `telegram ${r.osVersion.toLowerCase()} 下载`,
       'telegram下载',
@@ -168,7 +168,7 @@ export const MATRIX: MatrixEntry[] = RAW.map((r) => {
       `${p.shortName}下载`,
       '纸飞机下载',
     ],
-    intro: `本页针对 ${r.osVersion} 提供 Telegram（中文俗称“纸飞机”/“飞机”）官方下载入口与详细安装步骤。${r.highlight} ${r.note}`,
+    intro: `本页针对 ${r.osVersion} 提供 Telegram（中文俗称“纸飞机”/“飞机”）官方下载入口与详细安装步骤。${r.highlight} ${r.note} Telegram 全平台账号云端同步、消息互通，下载地址均指向 telegram.org 官方源，安全可靠。`,
     highlight: r.highlight,
     faqs: [
       {

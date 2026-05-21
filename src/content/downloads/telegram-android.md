@@ -1,6 +1,6 @@
 ---
 title: Telegram 安卓下载（官方 APK + Google Play）
-description: Telegram 安卓版下载说明，提供官方 APK 直装与 Google Play 两种安全安装方式，含简体中文设置方法。纸飞机安卓版即 Telegram 官方 Android 客户端。
+description: Telegram 安卓官方下载说明：提供官方 APK 直装与 Google Play 两种方式，兼容 Android 6.0 及以上，附简体中文设置步骤。APK 直连 telegram.org、不二次打包。纸飞机安卓版即官方 Telegram。
 platform: android
 osLabel: Android 6.0 及以上
 version: 11.2.0

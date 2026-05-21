@@ -29,7 +29,7 @@ export const KEYWORD_PAGES: Record<string, KeywordPage> = {
     h1: 'Telegram 中文版：界面汉化与简体中文设置完整说明',
     title: 'Telegram中文 - 中文版界面设置与下载入口',
     description:
-      'Telegram 中文版是什么？本页讲清 Telegram 简体中文设置原理：官方 App + 官方中文语言包，并提供各平台下载入口。Telegram 中文用户常称“纸飞机”。',
+      'Telegram 中文版完整说明。讲清简体中文设置原理——官方原版 App + 官方中文语言包，一键切换为完整中文界面，并附各平台下载入口。无需第三方汉化、安全可逆。Telegram 中文用户常称“纸飞机”。',
     keywords: ['telegram中文', 'telegram中文版', 'telegram中文版下载', '纸飞机中文版', 'telegram汉化'],
     lead:
       'Telegram 官方应用本身不内置“中文版安装包”，所谓 Telegram 中文版，是指安装官方原版应用后，再应用官方简体中文语言包，使界面完整中文化。这种方式最安全，避免第三方汉化包夹带风险。',
@@ -81,7 +81,7 @@ export const KEYWORD_PAGES: Record<string, KeywordPage> = {
     h1: 'Telegram 中文版下载：各平台官方安全入口汇总',
     title: 'Telegram中文版下载 - 电脑安卓iOS官方入口汇总',
     description:
-      'Telegram 中文版下载导航：汇总 Windows 电脑版、安卓 APK、iOS、Mac、Linux 官方安全下载地址，并附简体中文一键设置方法。',
+      'Telegram 中文版下载权威导航。汇总 Windows 电脑版、安卓 APK、iOS、Mac、Linux 各平台官方安全下载地址，并附简体中文一键设置方法。所有入口直连 telegram.org 官方源，不二次打包、不捆绑。',
     keywords: ['telegram中文版下载', 'telegram下载', 'telegram中文', '纸飞机中文版下载', 'telegram apk下载'],
     lead:
       '本页汇总 Telegram（纸飞机）各平台官方下载入口。下载官方原版后按教程应用简体中文语言包，即可得到 Telegram 中文版。所有链接均指向 telegram.org 官方源。',
@@ -121,7 +121,7 @@ export const KEYWORD_PAGES: Record<string, KeywordPage> = {
     h1: '纸飞机下载：纸飞机就是 Telegram，官方各平台入口',
     title: '纸飞机下载 - 纸飞机APP（Telegram）官方下载',
     description:
-      '“纸飞机”是 Telegram 的中文俗称。本页提供纸飞机（Telegram）电脑版、安卓 APK、iOS、Mac 官方下载入口与中文设置教程，安全无捆绑。',
+      '“纸飞机”就是 Telegram 的中文俗称。本页提供纸飞机（Telegram）电脑版、安卓 APK、iOS、Mac 各平台官方下载入口与简体中文设置教程，认准 telegram.org 官方源，安全无捆绑、不夹带插件。',
     keywords: ['纸飞机下载', '纸飞机app下载', 'telegram下载', '飞机下载', '纸飞机中文版'],
     lead:
       '很多人搜索的“纸飞机 App”，其实就是 Telegram —— 因为它的图标是一架纸飞机，中文用户便习惯称它“纸飞机”或“飞机”。本页提供官方各平台下载入口。',
@@ -163,7 +163,7 @@ export const KEYWORD_PAGES: Record<string, KeywordPage> = {
     h1: '纸飞机中文版：把 Telegram 设为简体中文',
     title: '纸飞机中文版 - 纸飞机（Telegram）中文设置教程',
     description:
-      '纸飞机中文版怎么弄？本页讲清纸飞机（Telegram）切换简体中文的官方方法，并提供各平台下载入口，安全无第三方汉化风险。',
+      '纸飞机中文版怎么设置？本页讲清纸飞机（Telegram）切换简体中文的官方方法——官方原版加官方语言包，三步完成，并提供各平台下载入口。无第三方汉化风险，操作随时可逆。',
     keywords: ['纸飞机中文版', '纸飞机中文', 'telegram中文版', '纸飞机下载', 'telegram中文'],
     lead:
       '“纸飞机中文版”指的是把 Telegram 界面设置为简体中文。方法是：安装官方纸飞机（Telegram）原版 → 应用官方简体中文语言包。无需任何第三方汉化补丁。',
@@ -204,7 +204,7 @@ export const KEYWORD_PAGES: Record<string, KeywordPage> = {
     h1: '飞机下载：飞机（Telegram / 纸飞机）官方下载导航',
     title: '飞机下载 - 飞机APP（Telegram纸飞机）官方下载',
     description:
-      '“飞机”是 Telegram（纸飞机）的简称。本页提供飞机 App 各平台官方下载入口与中文设置教程，认准官方源，安全无捆绑。',
+      '“飞机”是 Telegram（纸飞机）的中文简称。本页提供飞机 App 各平台官方下载入口与简体中文设置教程，所有地址直连 telegram.org 官方源，安全无捆绑、不二次打包。',
     keywords: ['飞机下载', '飞机app下载', '纸飞机下载', 'telegram下载', 'telegram中文'],
     lead:
       '搜索“飞机 App / 飞机下载”的用户，找的通常就是 Telegram —— 别名“纸飞机”“飞机”。本页提供官方各平台下载入口，全部直连 telegram.org。',

@@ -1,6 +1,6 @@
 ---
 title: Telegram Mac 下载（M1/M2/Intel）
-description: Telegram Mac 版下载说明，原生支持 Apple Silicon（M1/M2/M3）与 Intel 芯片，含简体中文设置方法。纸飞机 Mac 版即 Telegram 官方 macOS 客户端。
+description: Telegram Mac 官方下载说明：原生支持 Apple Silicon（M1/M2/M3）与 Intel，提供官方 DMG 与 Mac App Store 入口，附简体中文设置步骤。纸飞机 Mac 版即官方 macOS 客户端。
 platform: mac
 osLabel: macOS 11 Big Sur 及以上
 version: 11.2.1

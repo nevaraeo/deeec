@@ -49,7 +49,7 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
     h1: 'Telegram 电脑版下载｜Windows 中文版客户端',
     title: 'Telegram电脑版下载 - Windows 11/10 中文版客户端',
     description:
-      'Telegram 电脑版（Windows）官方下载入口，支持 Windows 11/10/8/7 64 位，附简体中文设置教程。Telegram 中文用户常称“纸飞机”，本页提供官方安全下载地址与安装步骤。',
+      'Telegram 电脑版下载权威指南。面向 Windows 11/10/8/7（64 位）的官方桌面客户端，提供安装版与便携版两种下载入口，并附简体中文设置完整步骤。Telegram 在中文圈常被称为“纸飞机”，本页所有下载地址均指向 telegram.org 官方源，安全无捆绑。',
     keywords: ['telegram电脑版下载', 'telegram下载', 'telegram中文版下载', 'telegram windows', '纸飞机电脑版'],
     icon: 'windows',
     tagline: '面向 Windows 的桌面客户端，支持多账号、云同步与端到端加密私聊。',
@@ -63,6 +63,7 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
     intro: [
       'Telegram 电脑版是官方推出的 Windows 桌面客户端，登录后自动云端同步全部聊天记录，无需手机常在线即可独立收发消息。',
       '很多中文用户把 Telegram 称为“纸飞机”或“飞机”，因此“纸飞机电脑版下载”“飞机电脑端”指的都是同一个官方应用。本页所有下载链接均指向 telegram.org 官方服务器，安全无篡改。',
+      '作为一款跨平台即时通讯软件，Telegram 以隐私保护、消息云端同步与高速传输著称。桌面版完整继承这些能力，并针对 Windows 优化了系统通知、任务栏托盘、多窗口与高 DPI 显示，适合长时间办公与多账号管理。',
     ],
     features: [
       { title: '云端同步', body: '聊天记录保存在 Telegram 云端，换电脑、重装系统后登录即恢复，不丢消息。' },
@@ -97,7 +98,7 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
     h1: 'Telegram 安卓下载｜Android APK 中文版',
     title: 'Telegram安卓下载 - APK下载（Android 中文版）',
     description:
-      'Telegram 安卓版下载，提供官方 APK 与 Google Play 两种安全安装方式，附简体中文设置教程。纸飞机安卓版指的就是 Telegram 官方 Android 客户端。',
+      'Telegram 安卓下载权威指南。提供官方 APK 直接安装与 Google Play 两种方式，兼容 Android 6.0 及以上机型，并附简体中文设置教程。官方 APK 直连 telegram.org，不二次打包、不捆绑插件。中文用户常称的“纸飞机安卓版”即官方 Telegram。',
     keywords: ['telegram安卓下载', 'telegram apk下载', 'telegram下载', '纸飞机下载', '飞机下载', 'telegram中文'],
     icon: 'android',
     tagline: 'Android 官方客户端，支持 APK 直装与 Google Play 安装。',
@@ -111,6 +112,7 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
     intro: [
       'Telegram 安卓版提供两种官方安装方式：直接下载官方 APK 安装，或通过 Google Play 安装。两者均为官方正版，区别仅在更新渠道。',
       '“纸飞机 APK”“飞机安卓下载”说的都是 Telegram 官方 Android 客户端。本页 APK 链接直连 telegram.org，避免第三方市场捆绑插件的风险。',
+      'Android 版由 Telegram 官方持续维护，支持消息云端同步、最多 20 万人的超大群组与频道、端到端加密的秘密聊天，以及最高 2GB 的文件传输。官方 APK 适合无 Google 服务（GMS）的国行机型，与 Google Play 版功能完全一致。',
     ],
     features: [
       { title: '官方 APK', body: '无需 Google 服务即可直接下载安装，适合无 Play 商店的设备。' },
@@ -145,7 +147,7 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
     h1: 'Telegram iOS 下载｜iPhone / iPad 中文版',
     title: 'Telegram iOS下载 - iPhone/iPad 中文版',
     description:
-      'Telegram iOS 版下载，通过 App Store 安装 iPhone / iPad 官方客户端，附中文设置教程。纸飞机 iOS 版即 Telegram 官方应用。',
+      'Telegram iOS 下载权威指南。通过 App Store 安装 iPhone / iPad 官方客户端，兼容 iOS / iPadOS 15 及以上，账号云端同步、多端互通，并附简体中文设置步骤。中文用户常称的“纸飞机 iOS 版”即官方 Telegram 应用。',
     keywords: ['telegram ios下载', 'telegram下载', 'telegram中文版下载', '纸飞机ios', '飞机下载'],
     icon: 'apple',
     tagline: 'iPhone 与 iPad 官方客户端，App Store 一键安装。',
@@ -159,6 +161,7 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
     intro: [
       'iOS 用户通过 App Store 安装 Telegram 最为简单安全。点击本页按钮会跳转到官方下载页 / App Store 的 Telegram 应用页。',
       '“纸飞机 iOS”“飞机苹果版”指的都是同一个 Telegram 官方应用。App Store 内的版本由 Telegram 官方发布，自动更新、可信赖。',
+      'iOS 版由 Telegram FZ-LLC 在 App Store 官方发布，签名可信、自动更新，支持秘密聊天端到端加密、两步验证与锁屏小组件。聊天记录存于 Telegram 云端，更换设备登录即可恢复，不占用 iCloud 空间。',
     ],
     features: [
       { title: 'App Store 正版', body: '由 Telegram FZ-LLC 官方发布，签名可信，自动更新。' },
@@ -193,7 +196,7 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
     h1: 'Telegram Mac 下载｜macOS 中文版客户端',
     title: 'Telegram Mac下载 - M1/M2/Intel 中文版',
     description:
-      'Telegram Mac 版下载，原生支持 Apple Silicon（M1/M2/M3）与 Intel 芯片，附简体中文设置教程。纸飞机 Mac 版即 Telegram 官方 macOS 客户端。',
+      'Telegram Mac 下载权威指南。原生支持 Apple Silicon（M1/M2/M3）与 Intel 的 macOS 客户端，提供官方 DMG 与 Mac App Store 两种入口，并附简体中文设置步骤。所有下载地址均指向官方源，安全可靠。',
     keywords: ['telegram mac下载', 'telegram下载', 'telegram中文版下载', '纸飞机mac', 'telegram电脑版下载'],
     icon: 'apple',
     tagline: '原生 macOS 客户端，Apple Silicon 与 Intel 双架构支持。',
@@ -207,6 +210,7 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
     intro: [
       'Telegram Mac 版是为 macOS 深度优化的原生应用，对 M1/M2/M3 等 Apple Silicon 芯片提供原生支持，运行流畅省电。',
       '你可以从官方 .dmg 直接下载，或通过 Mac App Store 安装。“纸飞机 Mac”“飞机苹果电脑版”均指此官方客户端。',
+      'Mac 版采用通用二进制（Universal）原生运行于 Apple Silicon，启动迅速、能耗更低，并支持系统通知、聚焦搜索、拖拽分享与暗色模式，与手机端、Windows 端实时云端同步，适合苹果生态用户无缝衔接多设备。',
     ],
     features: [
       { title: '原生 Apple Silicon', body: '为 M 系列芯片原生编译，启动快、能耗低。' },
@@ -241,7 +245,7 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
     h1: 'Telegram Linux 下载｜中文版桌面客户端',
     title: 'Telegram Linux下载 - 中文版桌面客户端',
     description:
-      'Telegram Linux 版下载，提供官方静态二进制（tar.xz）以及 Snap / Flatpak 安装方式，附简体中文设置教程。',
+      'Telegram Linux 下载权威指南。提供官方静态二进制（tar.xz）以及 Snap、Flatpak 安装方式，兼容 Ubuntu / Debian / Fedora / Arch 等主流发行版，并附简体中文设置与命令行示例，地址均指向 telegram.org 官方源。',
     keywords: ['telegram linux下载', 'telegram下载', 'telegram中文版下载', 'telegram电脑版下载', '纸飞机linux'],
     icon: 'linux',
     tagline: '官方静态二进制，几乎兼容所有主流 Linux 发行版。',
@@ -253,6 +257,7 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
     intro: [
       'Telegram Linux 版以官方静态二进制方式发布，解压即用，几乎兼容所有主流发行版，也可通过 Snap 或 Flatpak 安装。',
       '“纸飞机 Linux 版”指的就是此官方桌面客户端，与 Windows / Mac 版同源同步。',
+      'Linux 版与 Windows、Mac 版功能完全一致，支持云端同步、fcitx5 / ibus 中文输入法与系统托盘。官方静态二进制几乎兼容所有现代发行版，解压即可运行、无需额外依赖，是开发者与桌面用户的可靠选择。',
     ],
     features: [
       { title: '静态二进制', body: '无需复杂依赖，下载解压即可运行。' },

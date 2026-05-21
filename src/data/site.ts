@@ -9,7 +9,7 @@ export const SITE = {
   url: 'https://telegrams.ltd',
   title: 'Telegram下载｜Telegram中文版电脑安卓iOS客户端',
   description:
-    'Telegram下载导航站，提供 Telegram 中文版电脑版、安卓 APK、iOS、Mac、Linux 官方客户端下载入口与中文设置教程。Telegram 中文用户常称“纸飞机”或“飞机”，本站汇总各平台官方安全下载地址。',
+    'Telegram 中文下载权威导航。汇总 Telegram 中文版电脑版（Windows）、安卓 APK、iOS、Mac、Linux 各平台官方客户端下载入口与简体中文设置教程，所有地址均指向 telegram.org 官方源，安全可靠。Telegram 在中文圈常被称为“纸飞机”或“飞机”。',
   defaultOgImage: '/og-default.png',
   locale: 'zh-CN',
   lang: 'zh-CN',

@@ -37,7 +37,7 @@ const crumbs = [
 ---
 <BaseLayout
   title={`${category} - Telegram 中文教程分类`}
-  description={`分类「${category}」下的全部 Telegram（纸飞机）中文下载教程与博客文章。`}
+  description={`分类「${category}」汇总本站与 Telegram（纸飞机）相关的${category}文章，涵盖各平台下载、简体中文设置与使用技巧，内容专业、持续更新。`}
   keywords={[category, 'telegram教程', 'telegram中文']}
 >
   <Breadcrumbs items={crumbs} />
@@ -45,7 +45,7 @@ const crumbs = [
     <p class="eyebrow">分类</p>
     <h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">{category}</h1>
     <p class="mt-4 max-w-2xl text-base leading-7 text-slate-600">
-      「{category}」分类汇总了本站与 Telegram（纸飞机）相关的{category}文章，涵盖各平台下载、简体中文设置与使用技巧，方便你系统地了解这一主题。
+      「{category}」分类汇总了本站与 Telegram（中文俗称“纸飞机”）相关的{category}文章，涵盖各平台下载、简体中文设置与使用技巧，方便你系统地了解这一主题。本分类下的内容均基于 Telegram 官方做法编写，下载入口一律指向 telegram.org 官方源，力求权威、准确、可操作。
     </p>
     <p class="mt-3 text-sm text-slate-500">共 {sorted.length} 篇</p>
   </section>

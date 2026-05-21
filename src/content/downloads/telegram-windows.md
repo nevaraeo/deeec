@@ -1,6 +1,6 @@
 ---
 title: Telegram 电脑版下载（Windows 安装包 + 便携版）
-description: Telegram 电脑版 Windows 官方安装包与便携版下载说明，支持 Windows 11/10/8/7 64 位，含简体中文设置方法。纸飞机电脑版即 Telegram 官方桌面客户端。
+description: Telegram 电脑版 Windows 官方下载说明：安装包与便携版均支持 Windows 11/10/8/7（64 位），附简体中文设置步骤。下载地址直连 telegram.org 官方源，安全无捆绑。纸飞机电脑版即官方桌面客户端。
 platform: windows
 osLabel: Windows 11 / 10 / 8 / 7（x64）
 version: 5.12.3
