@@ -35,3 +35,31 @@ export const CORE_FAQS: Faq[] = [
     a: '可切换其它地区的 App Store 账号，或通过本站 iOS 页面的官方入口跳转到 Telegram 应用页直接安装。',
   },
 ];
+
+/** 首页专用：纯下载意图 FAQ（不含别名/中文版话题，聚焦“下载”本身） */
+export const DOWNLOAD_FAQS: Faq[] = [
+  {
+    q: 'Telegram 从哪里下载最安全？',
+    a: '请认准 telegram.org 官方域名，或通过 App Store / Google Play 下载。本站所有下载入口均直连官方服务器，不做二次打包、不捆绑插件。',
+  },
+  {
+    q: 'Telegram 下载与使用收费吗？',
+    a: 'Telegram 完全免费。聊天、群组、频道、文件传输等基础功能永久免费；另有可选的 Premium 会员提供增值特权，但不影响普通使用。',
+  },
+  {
+    q: 'Telegram 电脑版需要手机一直开着吗？',
+    a: '不需要。电脑版（Windows/Mac/Linux）是独立客户端，首次用手机验证码登录后即可独立收发消息，手机关机也不影响。',
+  },
+  {
+    q: '安卓下载 APK 提示“未知来源”安全吗？',
+    a: '只要 APK 来自 telegram.org 官方地址就是安全的。“未知来源”只是 Android 的标准安全提示，对你的浏览器授予一次安装权限即可。',
+  },
+  {
+    q: 'Telegram 支持哪些平台下载？',
+    a: 'Telegram 提供 Windows 电脑版、Android（APK / Google Play）、iOS（iPhone/iPad）、macOS、Linux 桌面版以及网页版，账号云端互通，可多端同时在线。',
+  },
+  {
+    q: 'iOS 在 App Store 搜不到 Telegram 怎么办？',
+    a: '可切换到其它地区的 App Store 账号，或通过本站 iOS 页面的官方入口跳转到 Telegram 应用页直接安装。',
+  },
+];

@@ -9,24 +9,22 @@ export const SITE = {
   url: 'https://telegrams.ltd',
   title: 'Telegram下载｜电脑版·安卓·iOS·Mac 客户端',
   description:
-    'Telegram 下载官方源导航：获取 Telegram 中文版电脑版（Windows）、安卓 APK、iOS、Mac、Linux 客户端，并附简体中文设置教程，所有下载均指向 telegram.org 官方源，安全可靠。Telegram 在中文圈常被称为“纸飞机”或“飞机”。',
+    'Telegram 下载官方源导航：获取 Telegram Windows 电脑版、安卓 APK、iOS、Mac、Linux 官方客户端，所有下载均直连 telegram.org 官方源，安全无捆绑、完全免费，支持多端云端同步。',
   defaultOgImage: '/og-default.png',
   logo: '/logo.png',
   locale: 'zh-CN',
   lang: 'zh-CN',
   twitter: '@telegram',
-  // 站点强语义关键词（注入首页 Schema keywords）
+  // 首页元关键词（聚焦“telegram下载”头部词；别名词由各专属页承载）
   keywords: [
     'telegram下载',
-    'telegram中文版下载',
-    'telegram中文',
     'telegram电脑版下载',
     'telegram安卓下载',
     'telegram ios下载',
-    '纸飞机下载',
-    '飞机下载',
-    '纸飞机中文版',
+    'telegram mac下载',
     'telegram apk下载',
+    'telegram官方下载',
+    'telegram下载安装',
   ],
   publisher: {
     name: 'telegrams.ltd',

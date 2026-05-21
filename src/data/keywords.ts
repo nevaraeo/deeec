@@ -87,10 +87,26 @@ export const KEYWORD_PAGES: Record<string, KeywordPage> = {
       '本页汇总 Telegram（纸飞机）各平台官方下载入口。下载官方原版后按教程应用简体中文语言包，即可得到 Telegram 中文版。所有链接均指向 telegram.org 官方源。',
     sections: [
       {
-        heading: '按设备选择下载',
-        paragraphs: ['先确认你的设备类型，再点击对应平台进入下载与中文设置说明页。'],
+        heading: '什么是 Telegram 中文版',
+        paragraphs: [
+          'Telegram 官方并没有单独的“中文版安装包”。所谓 Telegram 中文版，是指安装官方原版应用后，再应用官方简体中文语言包，使界面（菜单、设置、按钮）完整中文化——这样既得到完整中文界面，又保证账号安全。',
+          '该方式适用于全部平台：Windows 电脑版、安卓、iOS、Mac、Linux，设置方法一致；切勿为“中文”去下载第三方汉化包或破解版，以免被植入广告甚至盗号。',
+        ],
+      },
+      {
+        heading: '三步获取 Telegram 中文版',
+        paragraphs: ['无论哪个平台，把 Telegram 变成中文版只需三步：'],
         bullets: [
-          'Windows 电脑：/windows/（支持 Win 11/10/8/7 64 位）',
+          '第一步：从下方对应平台官方入口下载并安装 Telegram 原版',
+          '第二步：在浏览器打开官方简体中文语言包深链（本站每页底部均提供）',
+          '第三步：在弹出的 Telegram 中点击“应用 / Apply”，界面立即变为简体中文',
+        ],
+      },
+      {
+        heading: '按平台下载 Telegram 中文版',
+        paragraphs: ['先确认设备类型，再进入对应平台的下载与中文设置说明页：'],
+        bullets: [
+          'Windows 电脑版：/windows/（支持 Win 11/10/8/7 64 位）',
           '安卓手机：/android/（官方 APK 或 Google Play）',
           'iPhone / iPad：/ios/（App Store）',
           'Mac：/mac/（M1/M2 与 Intel）',
@@ -98,14 +114,8 @@ export const KEYWORD_PAGES: Record<string, KeywordPage> = {
         ],
       },
       {
-        heading: '下载后如何变成“中文版”',
-        paragraphs: [
-          '安装完官方原版，打开本站“中文设置教程”，点击官方简体中文语言包深链并选择“应用”，整个界面会立即切换为简体中文。',
-        ],
-      },
-      {
         heading: '安全下载提醒',
-        paragraphs: ['只认 telegram.org 官方域名与官方应用商店；不要安装来历不明的“汉化破解版”，以免账号被盗。'],
+        paragraphs: ['只认 telegram.org 官方域名与官方应用商店；不要安装来历不明的“汉化破解版”，以免账号被盗。本站汇总的入口均直连官方源。'],
       },
     ],
     faqs: [
