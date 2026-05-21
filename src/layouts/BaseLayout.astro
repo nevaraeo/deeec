@@ -27,19 +27,44 @@ const {
   modifiedTime,
 } = Astro.props;
 
-// 全站 WebSite + Organization 实体（GEO / 知识图谱友好）
+// 全站知识图谱：Organization + WebSite（@id 关联，GEO / 实体 SEO 友好）
 const orgSchema = {
   '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: SITE.name,
-  url: SITE.url,
-  inLanguage: 'zh-CN',
-  description: SITE.description,
-  publisher: {
-    '@type': 'Organization',
-    name: SITE.publisher.name,
-    url: SITE.publisher.url,
-  },
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${SITE.url}/#organization`,
+      name: SITE.name,
+      alternateName: ['Telegram中文下载', 'telegrams.ltd', 'Telegram 纸飞机下载导航'],
+      url: SITE.url,
+      logo: {
+        '@type': 'ImageObject',
+        '@id': `${SITE.url}/#logo`,
+        url: new URL(SITE.logo, SITE.url).href,
+        width: 512,
+        height: 512,
+        caption: SITE.name,
+      },
+      image: { '@id': `${SITE.url}/#logo` },
+      description: SITE.description,
+      knowsAbout: [
+        'Telegram',
+        '纸飞机',
+        'Telegram 中文版',
+        'Telegram 下载',
+        'Telegram 简体中文设置',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE.url}/#website`,
+      name: SITE.name,
+      url: SITE.url,
+      inLanguage: 'zh-CN',
+      description: SITE.description,
+      publisher: { '@id': `${SITE.url}/#organization` },
+    },
+  ],
 };
 ---
 <!doctype html>

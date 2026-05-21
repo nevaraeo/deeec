@@ -1,12 +1,12 @@
 /**
- * 生成站点默认 OG 分享图（1200×630 PNG）
- * 在本机运行（需有中文字体），产物提交为静态资源，避免在 Vercel 构建时渲染缺中文字体。
+ * 生成站点品牌图像（在本机运行，需中文字体），产物提交为静态资源：
+ *   - public/og-default.png  社交分享图 1200×630
+ *   - public/logo.png        方形品牌 logo 512×512（用于 Organization/Article 结构化数据）
  * 用法：npm run og
  */
 import { createCanvas, GlobalFonts, Path2D } from '@napi-rs/canvas';
 import { writeFileSync, existsSync } from 'node:fs';
 
-// 注册中文字体（按可用情况回退）
 const FONT_CANDIDATES = [
   ['C:/Windows/Fonts/simhei.ttf', 'BrandFont'],
   ['C:/Windows/Fonts/Deng.ttf', 'BrandFont'],
@@ -23,30 +23,10 @@ for (const [p, family] of FONT_CANDIDATES) {
   }
 }
 const FAMILY = fontLoaded ? 'BrandFont' : 'sans-serif';
+const PLANE =
+  'M27 58 84 36c2.7-1 5 .6 4 4.6l-9.6 45c-.7 3-2.6 3.8-5.2 2.4l-14.4-10.6-7 6.7c-.8.8-1.5 1.5-3 1.5l1.1-15.7 28.8-26c1.2-1-.3-1.7-1.9-.7L43 60.8 27.8 56c-3.2-1-3.3-3.2 1-5.3z';
 
-const W = 1200,
-  H = 630;
-const canvas = createCanvas(W, H);
-const ctx = canvas.getContext('2d');
-
-// 背景渐变
-const bg = ctx.createLinearGradient(0, 0, W, H);
-bg.addColorStop(0, '#0f172a');
-bg.addColorStop(1, '#155b80');
-ctx.fillStyle = bg;
-ctx.fillRect(0, 0, W, H);
-
-// 右上装饰圆
-ctx.save();
-ctx.globalAlpha = 0.12;
-ctx.fillStyle = '#229ed9';
-ctx.beginPath();
-ctx.arc(980, 120, 260, 0, Math.PI * 2);
-ctx.fill();
-ctx.restore();
-
-// 圆角矩形辅助
-function roundRect(x, y, w, h, r) {
+function roundRect(ctx, x, y, w, h, r) {
   ctx.beginPath();
   ctx.moveTo(x + r, y);
   ctx.arcTo(x + w, y, x + w, y + h, r);
@@ -56,34 +36,67 @@ function roundRect(x, y, w, h, r) {
   ctx.closePath();
 }
 
-// Logo（纸飞机）
-ctx.save();
-ctx.translate(96, 150);
-const lg = ctx.createLinearGradient(0, 0, 0, 120);
-lg.addColorStop(0, '#2aabee');
-lg.addColorStop(1, '#229ed9');
-ctx.fillStyle = lg;
-roundRect(0, 0, 120, 120, 28);
-ctx.fill();
-ctx.fillStyle = '#ffffff';
-const plane = new Path2D(
-  'M27 58 84 36c2.7-1 5 .6 4 4.6l-9.6 45c-.7 3-2.6 3.8-5.2 2.4l-14.4-10.6-7 6.7c-.8.8-1.5 1.5-3 1.5l1.1-15.7 28.8-26c1.2-1-.3-1.7-1.9-.7L43 60.8 27.8 56c-3.2-1-3.3-3.2 1-5.3z'
-);
-ctx.fill(plane);
-ctx.restore();
+function drawPlaneTile(ctx, x, y, size) {
+  ctx.save();
+  ctx.translate(x, y);
+  const g = ctx.createLinearGradient(0, 0, 0, size);
+  g.addColorStop(0, '#2aabee');
+  g.addColorStop(1, '#229ed9');
+  ctx.fillStyle = g;
+  roundRect(ctx, 0, 0, size, size, size * 0.23);
+  ctx.fill();
+  ctx.fillStyle = '#ffffff';
+  ctx.save();
+  ctx.scale(size / 120, size / 120);
+  ctx.fill(new Path2D(PLANE));
+  ctx.restore();
+  ctx.restore();
+}
 
-// 文案
-ctx.fillStyle = '#ffffff';
-ctx.font = `700 80px ${FAMILY}`;
-ctx.fillText('Telegram 中文下载', 96, 372);
+/* ---------- OG 分享图 1200×630 ---------- */
+{
+  const W = 1200,
+    H = 630;
+  const c = createCanvas(W, H);
+  const ctx = c.getContext('2d');
+  const bg = ctx.createLinearGradient(0, 0, W, H);
+  bg.addColorStop(0, '#0f172a');
+  bg.addColorStop(1, '#155b80');
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, W, H);
+  ctx.save();
+  ctx.globalAlpha = 0.12;
+  ctx.fillStyle = '#229ed9';
+  ctx.beginPath();
+  ctx.arc(980, 120, 260, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+  drawPlaneTile(ctx, 96, 150, 120);
+  ctx.fillStyle = '#ffffff';
+  ctx.font = `700 80px ${FAMILY}`;
+  ctx.fillText('Telegram 中文下载', 96, 372);
+  ctx.fillStyle = '#9fd6f0';
+  ctx.font = `400 38px ${FAMILY}`;
+  ctx.fillText('电脑版 · 安卓 · iOS · Mac · 纸飞机中文版', 96, 446);
+  ctx.fillStyle = '#5fbfe6';
+  ctx.font = `700 32px ${FAMILY}`;
+  ctx.fillText('telegrams.ltd', 96, 560);
+  writeFileSync('public/og-default.png', c.toBuffer('image/png'));
+  console.log(`OG image written: public/og-default.png (${W}x${H})`);
+}
 
-ctx.fillStyle = '#9fd6f0';
-ctx.font = `400 38px ${FAMILY}`;
-ctx.fillText('电脑版 · 安卓 · iOS · Mac · 纸飞机中文版', 96, 446);
-
-ctx.fillStyle = '#5fbfe6';
-ctx.font = `700 32px ${FAMILY}`;
-ctx.fillText('telegrams.ltd', 96, 560);
-
-writeFileSync('public/og-default.png', canvas.toBuffer('image/png'));
-console.log(`OG image written: public/og-default.png (${W}x${H})`);
+/* ---------- 方形品牌 logo 512×512 ---------- */
+{
+  const S = 512;
+  const c = createCanvas(S, S);
+  const ctx = c.getContext('2d');
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, S, S);
+  drawPlaneTile(ctx, (S - 256) / 2, 90, 256);
+  ctx.fillStyle = '#0f172a';
+  ctx.textAlign = 'center';
+  ctx.font = `700 46px ${FAMILY}`;
+  ctx.fillText('telegrams.ltd', S / 2, 430);
+  writeFileSync('public/logo.png', c.toBuffer('image/png'));
+  console.log(`Logo written: public/logo.png (${S}x${S})`);
+}
