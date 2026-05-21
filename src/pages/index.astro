@@ -9,6 +9,7 @@ import ArticleCard from '../components/ArticleCard.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import Cta from '../components/Cta.astro';
 import JsonLd from '../components/JsonLd.astro';
+import SoftwareAppSchema from '../components/SoftwareAppSchema.astro';
 import Icon from '../components/Icon.astro';
 import { SITE, SEMANTIC_ANCHOR } from '../data/site';
 import { CORE_FAQS } from '../data/faqs';
@@ -33,6 +34,14 @@ const itemListSchema = {
 };
 
 const seoLinks = KEYWORD_LIST.map((k) => ({ label: k.h1.split('：')[0], href: k.slug }));
+const fmt = (d: string) => new Date(d).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const installSteps = [
+  { t: '选择平台下载', d: '根据设备从本站官方入口获取安装包：Windows 电脑版、安卓 APK、iOS、Mac 或 Linux。' },
+  { t: '安装应用', d: '按系统提示完成安装；安卓首次安装 APK 需对浏览器授予一次“安装未知应用”权限。' },
+  { t: '手机号登录', d: '打开 Telegram 输入手机号接收验证码登录；已有账号会自动云端同步全部聊天记录。' },
+  { t: '切换简体中文', d: '应用官方简体中文语言包，界面立即变为中文，即得“Telegram 中文版”。' },
+];
 ---
 <BaseLayout title={SITE.title} description={SITE.description} keywords={[...SITE.keywords]}>
   <Hero />
@@ -44,6 +53,63 @@ const seoLinks = KEYWORD_LIST.map((k) => ({ label: k.h1.split('：')[0], href: k
     lead="Windows 电脑版、安卓 APK、iOS、Mac、Linux —— 全部指向 telegram.org 官方源，安全无捆绑。"
   >
     <PlatformGrid />
+  </Section>
+
+  <Section
+    eyebrow="版本信息"
+    title="Telegram 各平台最新版本一览"
+    lead="下表为各平台官方客户端的最新版本、体积与系统要求，数据持续更新；所有下载均指向 telegram.org 官方源，本站不托管安装包。"
+  >
+    <div class="overflow-x-auto rounded-2xl border border-slate-200">
+      <table class="w-full min-w-[680px] text-left text-sm">
+        <thead class="bg-slate-50 text-slate-600">
+          <tr>
+            <th class="px-4 py-3 font-semibold">平台</th>
+            <th class="px-4 py-3 font-semibold">最新版本</th>
+            <th class="px-4 py-3 font-semibold">文件大小</th>
+            <th class="px-4 py-3 font-semibold">系统要求</th>
+            <th class="px-4 py-3 font-semibold">更新日期</th>
+            <th class="px-4 py-3 text-right font-semibold">下载</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          {PLATFORM_LIST.map((p) => (
+            <tr class="hover:bg-slate-50/60">
+              <td class="px-4 py-3 font-medium text-slate-900">{p.name}</td>
+              <td class="px-4 py-3 text-slate-700">v{p.version}</td>
+              <td class="px-4 py-3 text-slate-600">{p.fileSize}</td>
+              <td class="px-4 py-3 text-slate-600">{p.requirements}</td>
+              <td class="px-4 py-3 text-slate-500">{fmt(p.updated)}</td>
+              <td class="px-4 py-3 text-right"><a href={p.slug} class="font-medium text-tg-600 no-underline hover:text-tg-700">{p.shortName} →</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-3 text-xs text-slate-500">版本号与体积为参考值，请以官方实际发布为准。Telegram 全平台免费，账号云端互通，可多端同时登录。</p>
+  </Section>
+
+  <Section
+    eyebrow="下载指南"
+    title="如何下载并安装 Telegram（通用四步）"
+    lead="无论电脑、安卓还是 iOS，下载安装 Telegram（中文俗称“纸飞机”）只需四步，全程使用官方源，安全可靠。"
+  >
+    <ol class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {installSteps.map((s, i) => (
+        <li class="card flex gap-4">
+          <span class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-tg-500 text-sm font-bold text-white">{i + 1}</span>
+          <div>
+            <h3 class="text-base font-semibold text-slate-900">{s.t}</h3>
+            <p class="mt-1 text-sm leading-6 text-slate-600">{s.d}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+    <p class="mt-4 flex items-center gap-2 text-xs text-slate-500">
+      <Icon name="shield" class="h-4 w-4 text-tg-500" />
+      安全提示：请只从 telegram.org 官方地址或 App Store / Google Play 下载，切勿安装第三方“汉化破解版”，以免账号被盗。详见
+      <a href="/blog/telegram-download-safety/" class="text-tg-600 no-underline hover:text-tg-700">下载安全指南</a>。
+    </p>
   </Section>
 
   <Section eyebrow="关于 Telegram" title="Telegram 是什么？为什么中文叫“纸飞机”">
@@ -109,4 +175,11 @@ const seoLinks = KEYWORD_LIST.map((k) => ({ label: k.h1.split('：')[0], href: k
 
   <FaqSchema faqs={CORE_FAQS} />
   <JsonLd schema={itemListSchema} />
+  <SoftwareAppSchema
+    name="Telegram（纸飞机）"
+    os="Windows, macOS, Linux, Android, iOS"
+    description={SITE.description}
+    url="/"
+    featureList={['云端多端同步', '最多 20 万人超大群组与频道', '端到端加密秘密聊天', '单文件最高 2GB 传输', '简体中文界面', '全平台免费']}
+  />
 </BaseLayout>
