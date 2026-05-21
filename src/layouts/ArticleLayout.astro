@@ -88,7 +88,7 @@ const articleSchema = {
             {category && <span class="badge">{category}</span>}
             {difficulty && <span class="badge-slate">{difficulty}</span>}
             {readingMinutes && (
-              <span class="inline-flex items-center gap-1 text-slate-400">
+              <span class="inline-flex items-center gap-1 text-slate-500">
                 <Icon name="bolt" class="h-3.5 w-3.5" /> 约 {readingMinutes} 分钟阅读
               </span>
             )}
@@ -99,7 +99,7 @@ const articleSchema = {
             <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-gradient-to-b from-tg-400 to-tg-600 text-sm font-bold text-white">{authorInitial}</span>
             <div class="text-sm leading-tight">
               <div class="font-medium text-slate-800">{author}</div>
-              <div class="mt-0.5 flex flex-wrap gap-x-3 text-xs text-slate-400">
+              <div class="mt-0.5 flex flex-wrap gap-x-3 text-xs text-slate-500">
                 <time datetime={pubDate.toISOString()}>发布 {fmt(pubDate)}</time>
                 {updatedDate && <time datetime={updatedDate.toISOString()}>更新 {fmt(updatedDate)}</time>}
               </div>
@@ -142,7 +142,7 @@ const articleSchema = {
       {toc.length > 1 && (
         <aside class="hidden lg:block">
           <div class="sticky top-24" data-toc>
-            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">本页目录</p>
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">本页目录</p>
             <nav class="mt-4 border-l border-slate-200">
               <ul class="space-y-1 text-sm">
                 {toc.map((h) => (

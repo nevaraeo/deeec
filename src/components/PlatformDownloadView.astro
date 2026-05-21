@@ -103,5 +103,6 @@ const fmt = (d: string) => new Date(d).toLocaleDateString('zh-CN', { year: 'nume
   version={data.version}
   fileSize={data.fileSize}
   url={data.slug}
+  featureList={data.features.map((f) => f.title)}
 />
 <FaqSchema faqs={data.faqs} />

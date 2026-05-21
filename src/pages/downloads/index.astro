@@ -7,9 +7,11 @@ import FaqList from '../../components/FaqList.astro';
 import FaqSchema from '../../components/FaqSchema.astro';
 import Cta from '../../components/Cta.astro';
 import Icon from '../../components/Icon.astro';
+import CollectionSchema from '../../components/CollectionSchema.astro';
 import { CORE_FAQS } from '../../data/faqs';
 import { MATRIX } from '../../data/matrix';
 import { KEYWORD_LIST } from '../../data/keywords';
+import { PLATFORM_LIST } from '../../data/platforms';
 
 const title = 'Telegram下载中心 - 全平台官方安全入口汇总';
 const description =
@@ -74,4 +76,13 @@ const groups = [
   <div class="mt-16"><Cta /></div>
   <div class="h-16"></div>
   <FaqSchema faqs={CORE_FAQS} />
+  <CollectionSchema
+    name={title}
+    description={description}
+    items={[
+      ...PLATFORM_LIST.map((p) => ({ name: p.name, url: p.slug })),
+      ...MATRIX.map((m) => ({ name: m.h1.split('｜')[0], url: `/telegram-download-for-${m.combo}/` })),
+      ...KEYWORD_LIST.map((k) => ({ name: k.h1.split('：')[0], url: k.slug })),
+    ]}
+  />
 </BaseLayout>

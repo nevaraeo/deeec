@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
+import CollectionSchema from '../../components/CollectionSchema.astro';
 import Cta from '../../components/Cta.astro';
 import { getCollection } from 'astro:content';
 
@@ -56,4 +57,10 @@ const crumbs = [
 
   <div class="mt-16"><Cta /></div>
   <div class="h-16"></div>
+
+  <CollectionSchema
+    name={title}
+    description={description}
+    items={posts.map((p) => ({ name: p.data.title, url: `/blog/${p.id}/` }))}
+  />
 </BaseLayout>

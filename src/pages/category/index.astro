@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Icon from '../../components/Icon.astro';
+import CollectionSchema from '../../components/CollectionSchema.astro';
 import { getCollection } from 'astro:content';
 
 const blog = await getCollection('blog', ({ data }) => !data.draft);
@@ -49,4 +50,8 @@ const crumbs = [
     )}
   </section>
   <div class="h-16"></div>
+  <CollectionSchema
+    name="内容分类"
+    items={categories.map(([c]) => ({ name: c, url: `/category/${encodeURIComponent(c)}/` }))}
+  />
 </BaseLayout>

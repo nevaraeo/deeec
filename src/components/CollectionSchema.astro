@@ -1,0 +1,36 @@
+---
+import JsonLd from './JsonLd.astro';
+import { SITE } from '../data/site';
+
+/**
+ * CollectionPage + ItemList 结构化数据，用于列表/聚合页。
+ * 帮助搜索引擎与 AI 理解“本页是一个集合，包含以下条目”。
+ */
+interface Props {
+  name: string;
+  description?: string;
+  items: { name: string; url: string }[];
+}
+const { name, description, items } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name,
+  description,
+  inLanguage: 'zh-CN',
+  isPartOf: { '@id': `${SITE.url}/#website` },
+  publisher: { '@id': `${SITE.url}/#organization` },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: items.length,
+    itemListElement: items.map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.name,
+      url: new URL(it.url, SITE.url).href,
+    })),
+  },
+};
+---
+{items.length > 0 && <JsonLd schema={schema} />}
