@@ -241,6 +241,94 @@ export const KEYWORD_PAGES: Record<string, KeywordPage> = {
       ...COMMON_RELATED.slice(0, 3),
     ],
   },
+
+  'dianbao-download': {
+    slug: '/dianbao-download/',
+    h1: '电报下载：电报就是 Telegram，官方各平台下载入口',
+    title: '电报下载 - 电报APP（Telegram）官方下载',
+    description:
+      '“电报”是 Telegram 的中文译名。本页提供电报（Telegram）电脑版、安卓 APK、iOS、Mac 各平台官方下载入口与简体中文设置教程，所有地址均指向 telegram.org 官方源，安全无捆绑。',
+    keywords: ['电报下载', '电报app下载', 'telegram下载', '电报中文版', '纸飞机下载'],
+    lead:
+      '很多人搜索的“电报 App”，其实就是 Telegram —— “电报”是英文 Telegram 的中文意译。无论你叫它电报、纸飞机还是飞机，下载的都是同一个官方应用。本页提供各平台官方下载入口。',
+    sections: [
+      {
+        heading: '“电报”为什么是 Telegram',
+        paragraphs: [
+          'Telegram 一词的中文意译就是“电报”，因此中文社区里“电报”“纸飞机”“飞机”指的都是同一款官方即时通讯应用，并不存在另一个叫“电报”的独立软件。',
+          '它支持私密聊天、最多 20 万人的超大群组、频道广播与大文件传输，账号全平台云端同步。',
+        ],
+      },
+      {
+        heading: '电报（Telegram）官方下载入口',
+        paragraphs: ['请按设备选择，全部指向 telegram.org 官方服务器：'],
+        bullets: [
+          '电报电脑版（Windows）：/windows/',
+          '电报安卓版（APK）：/android/',
+          '电报 iOS 版：/ios/',
+          '电报 Mac 版：/mac/，Linux：/linux/',
+        ],
+      },
+      {
+        heading: '下载后设置中文（电报中文版）',
+        paragraphs: [
+          '官方原版默认英文，安装后应用官方简体中文语言包即得“电报中文版”，无需第三方汉化。详细方法见本站中文设置教程。',
+        ],
+      },
+    ],
+    faqs: [
+      { q: '电报是什么软件？', a: '电报是即时通讯软件 Telegram 的中文译名（Telegram 意译为“电报”）。它注重隐私与速度，支持超大群组、频道与大文件传输。' },
+      { q: '电报和 Telegram、纸飞机是同一个吗？', a: '是同一个。电报、纸飞机、飞机都是中文用户对 Telegram 的不同叫法，下载的就是官方 Telegram 应用。' },
+      { q: '电报怎么下载中文版？', a: '先从官方入口下载 Telegram 原版，再应用官方简体中文语言包即可，详见本站中文设置教程。' },
+    ],
+    related: [
+      { label: '电报中文版设置', href: '/dianbao-chinese/' },
+      { label: '纸飞机下载', href: '/paper-airplane-download/' },
+      ...COMMON_RELATED.slice(0, 3),
+    ],
+  },
+
+  'dianbao-chinese': {
+    slug: '/dianbao-chinese/',
+    h1: '电报中文版：把 Telegram（电报）设为简体中文',
+    title: '电报中文版 - 电报（Telegram）中文设置教程',
+    description:
+      '电报中文版怎么设置？本页讲清电报（Telegram）切换简体中文的官方方法——官方原版加官方语言包，三步完成，并提供各平台下载入口，无第三方汉化风险、操作可逆。',
+    keywords: ['电报中文版', '电报中文', 'telegram中文版', '电报下载', 'telegram中文'],
+    lead:
+      '“电报中文版”指的是把 Telegram（电报）界面设置为简体中文。方法是：安装官方电报（Telegram）原版 → 应用官方简体中文语言包，无需任何第三方汉化补丁。',
+    sections: [
+      {
+        heading: '电报中文版的正确打开方式',
+        paragraphs: [
+          '不存在单独的“电报中文版安装包”。正确做法是装官方原版，再用官方语言包切换中文，这样既得到完整中文界面，又保证账号安全。',
+        ],
+      },
+      {
+        heading: '三步设置中文',
+        paragraphs: ['以下步骤适用于电脑版、安卓、iOS、Mac、Linux：'],
+        bullets: [
+          '第一步：从本站官方入口下载并安装 Telegram（电报）原版',
+          '第二步：在浏览器打开官方简体中文语言包深链',
+          '第三步：在弹出的 Telegram 中点击“应用 / Apply”，界面立即变中文',
+        ],
+      },
+      {
+        heading: '常见误区',
+        paragraphs: ['搜索“电报中文版破解 / 汉化版”往往是被二次打包的高风险文件，请勿安装，坚持官方原版 + 官方语言包。'],
+      },
+    ],
+    faqs: [
+      { q: '电报中文版在哪下载？', a: '没有独立的中文版安装包。下载官方电报（Telegram）原版后应用官方简体中文语言包即可，本站提供官方下载入口与一键语言包链接。' },
+      { q: '电报设置中文后还能改回英文吗？', a: '可以。在 Settings → Language（语言）中随时切换语言，操作可逆。' },
+      { q: '电报、纸飞机、Telegram 是同一个吗？', a: '是的，都是同一款官方应用的不同中文叫法。' },
+    ],
+    related: [
+      { label: '电报下载入口', href: '/dianbao-download/' },
+      { label: 'Telegram 中文版下载', href: '/telegram-chinese-download/' },
+      ...COMMON_RELATED.slice(0, 3),
+    ],
+  },
 };
 
 export const KEYWORD_LIST = Object.values(KEYWORD_PAGES);

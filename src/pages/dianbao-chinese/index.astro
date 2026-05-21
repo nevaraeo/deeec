@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import KeywordView from '../../components/KeywordView.astro';
+import { KEYWORD_PAGES } from '../../data/keywords';
+const page = KEYWORD_PAGES['dianbao-chinese'];
+const crumbs = [
+  { name: '首页', href: '/' },
+  { name: '电报中文版', href: page.slug },
+];
+---
+<BaseLayout title={page.title} description={page.description} keywords={page.keywords}>
+  <Breadcrumbs items={crumbs} />
+  <KeywordView page={page} />
+</BaseLayout>

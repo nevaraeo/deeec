@@ -7,7 +7,7 @@ export const SITE = {
   name: 'Telegram中文下载',
   domain: 'telegrams.ltd',
   url: 'https://telegrams.ltd',
-  title: 'Telegram下载｜Telegram中文版电脑安卓iOS客户端',
+  title: 'Telegram下载｜电脑版·安卓·iOS·Mac 客户端',
   description:
     'Telegram 下载官方源导航：获取 Telegram 中文版电脑版（Windows）、安卓 APK、iOS、Mac、Linux 客户端，并附简体中文设置教程，所有下载均指向 telegram.org 官方源，安全可靠。Telegram 在中文圈常被称为“纸飞机”或“飞机”。',
   defaultOgImage: '/og-default.png',
@@ -100,6 +100,8 @@ export const FOOTER_LINKS: { title: string; links: { label: string; href: string
       { label: '纸飞机下载', href: '/paper-airplane-download/' },
       { label: '纸飞机中文版', href: '/paper-airplane-chinese/' },
       { label: '飞机下载', href: '/airplane-download/' },
+      { label: '电报下载', href: '/dianbao-download/' },
+      { label: '电报中文版', href: '/dianbao-chinese/' },
     ],
   },
   {
@@ -126,6 +128,6 @@ export const FOOTER_LINKS: { title: string; links: { label: string; href: string
 
 /** 全站复用的语义锚句 —— 在多页面合理出现，建立“纸飞机=Telegram”强关联 */
 export const SEMANTIC_ANCHOR =
-  'Telegram（中文用户常称“纸飞机”或“飞机”，也写作 Telegram 中文版）是一款主打隐私、安全与速度的跨平台即时通讯应用。';
+  'Telegram（中文用户常称“纸飞机”“飞机”或“电报”，也写作 Telegram 中文版）是一款主打隐私、安全与速度的跨平台即时通讯应用。';
 
 export type Platform = 'windows' | 'android' | 'ios' | 'mac' | 'linux';
