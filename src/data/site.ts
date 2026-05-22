@@ -9,7 +9,7 @@ export const SITE = {
   url: 'https://telegrams.ltd',
   title: 'Telegram下载｜电脑版安卓iOS客户端',
   description:
-    'Telegram下载官方源导航：一站直达 Telegram 电脑版、安卓 APK、iOS、Mac、Linux 最新版客户端，所有下载均直连 telegram.org，安全无捆绑、不二次打包、完全免费，支持简体中文与多端云端同步。',
+    'Telegram下载官方正版，全平台免费：电脑版、安卓 APK、iOS、Mac、Linux 客户端均直连 telegram.org 获取，安全无捆绑，支持简体中文与多端云端实时同步。',
   defaultOgImage: '/og-default.png',
   logo: '/logo.png',
   locale: 'zh-CN',
