@@ -9,7 +9,7 @@ export const SITE = {
   url: 'https://telegrams.ltd',
   title: 'Telegram下载｜电报官网',
   description:
-    'Telegram（电报）官方下载入口：电脑版、安卓 APK、iOS、Mac、Linux 官方正版客户端安装包均直连 telegram.org 官方源，安全无捆绑、完全免费，支持简体中文界面与多端云端同步。',
+    'Telegram下载官网，获取最新版电报应用，支持安卓、iOS及PC端下载安装，快速稳定连接全球用户。',
   defaultOgImage: '/og-default.png',
   logo: '/logo.png',
   locale: 'zh-CN',
