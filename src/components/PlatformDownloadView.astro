@@ -89,6 +89,20 @@ const fmt = (d: string) => new Date(d).toLocaleDateString('zh-CN', { year: 'nume
   </ol>
 </section>
 
+<!-- 平台特有的权威语义内容 -->
+{data.deepDive.length > 0 && (
+  <section class="container-page section-tight">
+    <div class="article max-w-3xl">
+      {data.deepDive.map((b) => (
+        <>
+          <h2>{b.heading}</h2>
+          {b.paragraphs.map((p) => <p>{p}</p>)}
+        </>
+      ))}
+    </div>
+  </section>
+)}
+
 <!-- 更新日志 -->
 <Changelog entries={data.changelog} />
 

@@ -36,6 +36,7 @@ export interface PlatformData {
   steps: Step[];
   faqs: Faq[];
   changelog: ChangelogEntry[];
+  deepDive: { heading: string; paragraphs: string[] }[]; // 平台特有的权威语义段
 }
 
 const TODAY = '2026-05-18';
@@ -88,6 +89,22 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
       { version: '5.11.0', date: '2026-04-22', notes: ['新增聊天文件夹快捷键', '改进截图标注工具'] },
       { version: '5.10.1', date: '2026-04-03', notes: ['修复高 DPI 屏幕显示模糊问题'] },
     ],
+    deepDive: [
+      {
+        heading: 'Telegram 电脑版：独立运行与高效办公',
+        paragraphs: [
+          'Telegram 电脑版是真正独立的桌面客户端：首次用手机验证码登录后，即使手机离线或关机，也能在电脑上独立收发消息、加入群组与频道。它支持在同一客户端登录多个账号并一键切换，配合聊天文件夹、置顶会话与丰富的键盘快捷键，非常适合长时间办公、客服与社群管理场景。',
+          '所有聊天通过 Telegram 云端保存，换电脑或重装系统后登录即恢复，不会丢消息；单文件最高 2GB（Premium 4GB）的传输能力，也让它胜任发送资料、视频与安装包。',
+        ],
+      },
+      {
+        heading: '为什么坚持从官方源下载 Windows 版',
+        paragraphs: [
+          '本页的安装版与便携版均直连 telegram.org 官方服务器，文件未经任何二次打包或捆绑。网络上的“Telegram 中文版.exe / 汉化绿色版”常被植入广告、后台程序，甚至窃取登录验证码导致盗号——为“中文”去装这类文件得不偿失。',
+          '正确做法是：下载官方原版，再应用官方简体中文语言包获得完整中文界面；并在客户端内开启两步验证，为账号再加一道密码锁。',
+        ],
+      },
+    ],
   },
 
   android: {
@@ -136,6 +153,22 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
       { version: '11.2.0', date: '2026-05-10', notes: ['新增消息快速翻译', '优化弱网下消息发送重试', '修复部分机型通知延迟'] },
       { version: '11.1.4', date: '2026-04-20', notes: ['提升视频通话清晰度', '修复中文输入法偶发崩溃'] },
       { version: '11.0.0', date: '2026-03-28', notes: ['全新聊天界面与动效', '改进省电策略'] },
+    ],
+    deepDive: [
+      {
+        heading: '官方 APK 与 Google Play：该怎么选',
+        paragraphs: [
+          '安卓版有两种官方安装方式：官方 APK 直连 telegram.org，不依赖 Google 服务、更新更快，特别适合没有 GMS 的国行机型；Google Play 版本则可随商店自动更新。两者由 Telegram 官方发布、功能完全一致，按你的设备与使用习惯选择即可。',
+          '请始终从这两个官方渠道获取安装包，避免第三方应用市场中被捆绑插件、二次打包的版本。',
+        ],
+      },
+      {
+        heading: '让安卓消息既及时又省电',
+        paragraphs: [
+          '为保证群组与私聊消息实时送达，建议安装后在系统中允许 Telegram 的通知权限，并把它加入电池优化（省电）白名单，避免被厂商的后台清理策略误杀。',
+          '首次安装 APK 时，系统会提示“安装未知应用”——这是 Android 的正常安全机制，只需对你使用的浏览器或文件管理器授予一次权限即可，与安装包是否安全无关。',
+        ],
+      },
     ],
   },
 
@@ -186,6 +219,22 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
       { version: '11.1', date: '2026-04-18', notes: ['改进通话稳定性', '修复中文显示个别截断'] },
       { version: '11.0', date: '2026-03-25', notes: ['全新界面与手势', '支持更多自定义主题'] },
     ],
+    deepDive: [
+      {
+        heading: 'App Store 正版：可信签名与自动更新',
+        paragraphs: [
+          'iOS 版由 Telegram FZ-LLC 在 App Store 官方发布，应用签名可信、随系统自动更新，是 iPhone / iPad 上最省心、最安全的获取方式。点击本页入口会跳转到官方应用页，确保你安装的是正版而非仿冒应用。',
+          '聊天记录保存在 Telegram 云端、不占用 iCloud 空间，换机后用手机号登录即可恢复全部消息，iPhone 与 iPad 还能同时在线。',
+        ],
+      },
+      {
+        heading: 'iPhone / iPad 上的隐私与多端协作',
+        paragraphs: [
+          '隐私方面，iOS 版支持端到端加密的“秘密聊天”、阅后即焚与两步验证，满足高私密沟通需求；日常云聊天则在多设备间实时同步，手机、平板、电脑无缝衔接。',
+          '若所在区域的 App Store 暂时搜索不到 Telegram，可切换其它地区的 Apple ID，或通过本站官方入口跳转安装，全程指向官方页面。',
+        ],
+      },
+    ],
   },
 
   mac: {
@@ -235,6 +284,22 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
       { version: '11.1.2', date: '2026-04-19', notes: ['改进通知中心交互', '修复中文字体渲染'] },
       { version: '11.0.0', date: '2026-03-26', notes: ['全新侧边栏与多窗口支持'] },
     ],
+    deepDive: [
+      {
+        heading: 'macOS：原生性能与系统级集成',
+        paragraphs: [
+          'Telegram Mac 版为通用二进制（Universal），原生运行于 Apple Silicon（M1/M2/M3）同时兼容 Intel，启动迅速、内存占用低、对续航更友好。它深度集成 macOS 体验：系统通知、聚焦搜索、拖拽分享与暗色模式一应俱全，并与 iPhone、Windows 端实时云端同步。',
+          '你可从官方 DMG 直接安装，或通过 Mac App Store 获取；两者均为官方版本，DMG 更新更快、App Store 可随系统自动更新。',
+        ],
+      },
+      {
+        heading: '首次打开的安全提示如何处理',
+        paragraphs: [
+          '从官方 DMG 安装后首次打开，若 macOS 提示“无法验证开发者 / 来源未知”，前往“系统设置 → 隐私与安全性”，在底部找到 Telegram 点击“仍要打开”确认即可，这是 Gatekeeper 的正常机制。',
+          '请只从 telegram.org 或 Mac App Store 获取安装包，不要使用来历不明的第三方 DMG，以保障账号与系统安全。',
+        ],
+      },
+    ],
   },
 
   linux: {
@@ -281,6 +346,22 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
       { version: '5.12.3', date: '2026-05-12', notes: ['同步桌面版新特性', '修复部分 Wayland 下托盘图标问题'] },
       { version: '5.11.0', date: '2026-04-22', notes: ['改进 fcitx5 输入法兼容性'] },
       { version: '5.10.1', date: '2026-04-03', notes: ['修复高分屏缩放'] },
+    ],
+    deepDive: [
+      {
+        heading: '三种官方安装方式，怎么选',
+        paragraphs: [
+          'Linux 上获取 Telegram 有三种官方方式：解压即用的静态二进制 tar.xz、由官方维护并自动更新的 Snap（sudo snap install telegram-desktop），以及来自 Flathub 的 Flatpak（flatpak install flathub org.telegram.desktop）。追求省心的桌面用户推荐 Snap 或 Flatpak，希望轻量可控、随时拿到最新版的用户可选 tar.xz。',
+          '三种方式都与 Windows、Mac 版同源同步，功能完全一致；发行版仓库里的版本往往偏旧，因此更推荐上述官方渠道。',
+        ],
+      },
+      {
+        heading: '中文输入与桌面兼容性',
+        paragraphs: [
+          'Telegram 桌面版良好兼容 fcitx5 与 ibus 中文输入法，正确配置输入法环境变量后即可正常中文输入；在 X11 与 Wayland 桌面环境下均可运行，托盘图标等细节也已针对 Wayland 优化。',
+          '官方静态二进制几乎兼容所有现代发行版（Ubuntu、Debian、Fedora、Arch 等），解压后运行 ./Telegram 即可，无需安装额外依赖，适合开发者与桌面用户长期使用。',
+        ],
+      },
     ],
   },
 };
