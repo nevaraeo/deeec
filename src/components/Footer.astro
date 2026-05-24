@@ -1,5 +1,5 @@
 ---
-import { FOOTER_LINKS, SITE } from '../data/site';
+import { FOOTER_LINKS, FRIEND_LINKS, SITE } from '../data/site';
 const year = new Date().getFullYear();
 ---
 <footer class="mt-20 border-t border-slate-200 bg-slate-50/60">
@@ -31,7 +31,16 @@ const year = new Date().getFullYear();
       ))}
     </div>
 
-    <div class="mt-12 flex flex-col gap-3 border-t border-slate-200 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+    {FRIEND_LINKS.length > 0 && (
+      <div class="mt-12 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-slate-200 pt-6">
+        <span class="text-sm font-semibold text-slate-900">友情链接</span>
+        {FRIEND_LINKS.map((l) => (
+          <a href={l.href} target="_blank" rel="noopener" class="text-sm text-slate-500 no-underline hover:text-tg-600">{l.label}</a>
+        ))}
+      </div>
+    )}
+
+    <div class="mt-8 flex flex-col gap-3 border-t border-slate-200 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
       <p>© {year} {SITE.domain} · 本站为第三方下载导航，所有下载均指向 Telegram 官方源（telegram.org）。Telegram® 为 Telegram FZ-LLC 商标。</p>
       <div class="flex gap-4">
         <a href="/sitemap-index.xml" class="text-slate-500 no-underline hover:text-tg-600">站点地图</a>

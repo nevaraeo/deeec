@@ -124,6 +124,11 @@ export const FOOTER_LINKS: { title: string; links: { label: string; href: string
   },
 ];
 
+/** 友情链接 —— 外部合作站点（dofollow，正常传递权重；非 nofollow） */
+export const FRIEND_LINKS: { label: string; href: string }[] = [
+  { label: '雷电模拟器', href: 'https://ldmnq.ltd/' },
+];
+
 /** 全站复用的语义锚句 —— 在多页面合理出现，建立“纸飞机=Telegram”强关联 */
 export const SEMANTIC_ANCHOR =
   'Telegram（中文用户常称“纸飞机”“飞机”或“电报”，也写作 Telegram 中文版）是一款主打隐私、安全与速度的跨平台即时通讯应用。';
