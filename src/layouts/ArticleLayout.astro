@@ -43,7 +43,7 @@ interface Props {
   articleType?: 'BlogPosting' | 'TechArticle' | 'HowTo';
 }
 const {
-  title, description, h1, pubDate, updatedDate, author = '雷电模拟器',
+  title, description, h1, pubDate, updatedDate, author = SITE.publisher.name,
   category, difficulty, readingMinutes, tags = [], crumbs, faqs = [],
   related = [], relatedPosts = [], keywords = [], headings = [], articleType = 'BlogPosting',
 } = Astro.props;
