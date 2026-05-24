@@ -7,9 +7,9 @@ export const SITE = {
   name: 'Telegram中文下载',
   domain: 'telegrams.ltd',
   url: 'https://telegrams.ltd',
-  title: 'Telegram下载｜电报官网',
+  title: '雷电模拟器下载 - LDPlayer 安卓模拟器电脑版官网',
   description:
-    'Telegram下载官网，获取最新版电报应用，支持安卓、iOS及PC端下载安装，快速稳定连接全球用户。',
+    '雷电模拟器下载官网｜LDPlayer 安卓模拟器电脑版，提供稳定流畅的 Windows 安卓模拟器体验，支持手游多开、键鼠操作、高帧率运行与应用兼容优化。免费下载最新版雷电模拟器，轻松畅玩热门手游与安卓应用。',
   defaultOgImage: '/og-default.png',
   logo: '/logo.png',
   locale: 'zh-CN',
