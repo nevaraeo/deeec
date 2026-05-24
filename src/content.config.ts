@@ -46,7 +46,7 @@ const blog = defineCollection({
     description: z.string(),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
-    author: z.string().default('telegrams.ltd 编辑部'),
+    author: z.string().default('雷电模拟器'),
     image: z.string().optional(),
     category: z.string().default('使用教程'),
     tags: z.array(z.string()).default([]),
