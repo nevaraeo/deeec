@@ -5,8 +5,8 @@
 
 export const SITE = {
   name: 'Telegram中文下载',
-  domain: 'telegrams.ltd',
-  url: 'https://telegrams.ltd',
+  domain: 'telegramyp.com',
+  url: 'https://telegramyp.com',
   title: 'Telegram下载｜电报官网',
   description:
     'Telegram下载官网，获取最新版电报应用，支持安卓、iOS及PC端下载安装，快速稳定连接全球用户。',
@@ -27,8 +27,8 @@ export const SITE = {
     'telegram下载安装',
   ],
   publisher: {
-    name: 'telegrams.ltd',
-    url: 'https://telegrams.ltd',
+    name: 'telegramyp.com',
+    url: 'https://telegramyp.com',
   },
 } as const;
 

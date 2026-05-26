@@ -13,12 +13,12 @@ export const GET: APIRoute = async () => {
   const abs = (p: string) => new URL(p, SITE.url).href;
   const L: string[] = [];
 
-  L.push(`# ${SITE.name}（telegrams.ltd）`);
+  L.push(`# ${SITE.name}（telegramyp.com）`);
   L.push('');
   L.push(`> ${SITE.description}`);
   L.push('');
   L.push(
-    `${SEMANTIC_ANCHOR} 本站（telegrams.ltd）是 Telegram 中文下载导航与教程站点，汇总各平台官方下载入口（均指向 telegram.org 官方源）并提供简体中文设置教程。所谓“Telegram 中文版”指官方原版 App 加官方简体中文语言包，本站不提供第三方汉化或破解版本。`
+    `${SEMANTIC_ANCHOR} 本站（telegramyp.com）是 Telegram 中文下载导航与教程站点，汇总各平台官方下载入口（均指向 telegram.org 官方源）并提供简体中文设置教程。所谓“Telegram 中文版”指官方原版 App 加官方简体中文语言包，本站不提供第三方汉化或破解版本。`
   );
   L.push('');
 

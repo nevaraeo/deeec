@@ -1,4 +1,4 @@
-# Telegram 中文下载导航站 · telegrams.ltd
+# Telegram 中文下载导航站 · telegramyp.com
 
 一个面向 **Google SEO + GEO（AI 搜索）+ Programmatic SEO** 的 Telegram（纸飞机）中文下载导航站。
 
@@ -44,7 +44,7 @@ npm run check      # 类型检查
 1. 将代码推到 GitHub/GitLab；
 2. Vercel 控制台 **Import Project** → 选择仓库；
 3. 框架自动识别为 Astro，Build Command `npm run build`，Output `dist`；
-4. 绑定域名 `telegrams.ltd`。
+4. 绑定域名 `telegramyp.com`。
 
 或使用 CLI：
 
@@ -55,7 +55,7 @@ vercel --prod     # 生产部署
 ```
 
 部署后请在 [Google Search Console](https://search.google.com/search-console) 提交：
-`https://telegrams.ltd/sitemap-index.xml`
+`https://telegramyp.com/sitemap-index.xml`
 
 ---
 

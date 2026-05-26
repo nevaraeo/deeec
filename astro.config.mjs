@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { readFileSync, readdirSync } from 'node:fs';
 
 // 生产域名 —— 用于 canonical / sitemap / RSS / OG 绝对地址
-const SITE = 'https://telegrams.ltd';
+const SITE = 'https://telegramyp.com';
 
 // 站点级“稳定 lastmod”：静态 / 数据驱动页面（首页、平台页、关键词页、列表页等）统一使用，
 // 关键是它【不随每次构建变动】，避免谷歌因“全站永远同时间修改”而不信任 lastmod。

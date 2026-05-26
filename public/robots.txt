@@ -1,4 +1,4 @@
-# telegrams.ltd —— Telegram 中文下载导航站
+# telegramyp.com —— Telegram 中文下载导航站
 # 允许所有主流搜索引擎与 AI 抓取器收录
 
 User-agent: *
@@ -32,5 +32,5 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://telegrams.ltd/sitemap-index.xml
-Sitemap: https://telegrams.ltd/sitemap.txt
+Sitemap: https://telegramyp.com/sitemap-index.xml
+Sitemap: https://telegramyp.com/sitemap.txt

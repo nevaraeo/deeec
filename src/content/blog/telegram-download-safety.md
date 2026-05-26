@@ -40,7 +40,7 @@ faqs:
 - iOS 是不是 App Store 里由 **Telegram FZ-LLC** 发布的应用；
 - 页面有没有“破解、汉化、去验证、会员免费”等可疑字眼——有就是高危信号。
 
-本站（telegrams.ltd）的所有下载按钮都直连 telegram.org 官方服务器，不做任何二次打包，可放心使用。
+本站（telegramyp.com）的所有下载按钮都直连 telegram.org 官方服务器，不做任何二次打包，可放心使用。
 
 ## 万一已经装了来路不明的版本
 
