@@ -1,0 +1,42 @@
+---
+import { PLATFORM_LIST } from '../data/platforms';
+import Icon from './Icon.astro';
+
+const iconMap: Record<string, 'windows' | 'android' | 'apple' | 'linux'> = {
+  windows: 'windows',
+  android: 'android',
+  ios: 'apple',
+  mac: 'apple',
+  linux: 'linux',
+};
+---
+<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+  {PLATFORM_LIST.map((p) => (
+    <a href={p.slug} class="card card-hover group flex flex-col gap-3 no-underline">
+      <div class="flex items-center gap-3">
+        <span class="grid h-11 w-11 place-items-center rounded-xl bg-tg-50 text-tg-600">
+          <Icon name={iconMap[p.key]} class="h-6 w-6" />
+        </span>
+        <div>
+          <h3 class="text-base font-semibold text-slate-900">{p.shortName}</h3>
+          <p class="text-xs text-slate-500">{p.requirements}</p>
+        </div>
+      </div>
+      <p class="text-sm leading-6 text-slate-600">{p.tagline}</p>
+      <div class="mt-auto flex items-center justify-between pt-2">
+        <span class="badge-slate">v{p.version}</span>
+        <span class="inline-flex items-center gap-1 text-sm font-medium text-tg-600">
+          下载 <Icon name="arrow" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </span>
+      </div>
+    </a>
+  ))}
+  <a href="/downloads/" class="card card-hover group flex flex-col items-start justify-center gap-2 border-dashed no-underline">
+    <span class="grid h-11 w-11 place-items-center rounded-xl bg-slate-100 text-slate-500">
+      <Icon name="globe" class="h-6 w-6" />
+    </span>
+    <h3 class="text-base font-semibold text-slate-900">全部下载入口</h3>
+    <p class="text-sm text-slate-600">查看所有平台与长尾版本下载页</p>
+    <span class="inline-flex items-center gap-1 text-sm font-medium text-tg-600">浏览全部 <Icon name="arrow" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" /></span>
+  </a>
+</div>

@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import CollectionSchema from '../../components/CollectionSchema.astro';
+import Cta from '../../components/Cta.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+const categories = [...new Set(posts.map((p) => p.data.category))];
+
+const title = 'Telegram 中文博客 - 下载/中文设置/使用技巧';
+const description =
+  'Telegram（纸飞机）中文博客：下载指南、简体中文设置、安全使用与功能技巧等原创文章，内容专业、持续更新。';
+const crumbs = [
+  { name: '首页', href: '/' },
+  { name: '博客', href: '/blog/' },
+];
+---
+<BaseLayout title={title} description={description} keywords={['telegram博客','telegram教程','纸飞机使用技巧','telegram中文']}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container-page pt-8">
+    <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Telegram 中文博客</h1>
+    <p class="mt-4 max-w-2xl text-base leading-7 text-slate-600">
+      Telegram（纸飞机）下载、中文设置与使用技巧的原创文章。
+    </p>
+    {categories.length > 0 && (
+      <div class="mt-6 flex flex-wrap gap-2">
+        {categories.map((c) => (
+          <a href={`/category/${encodeURIComponent(c)}/`} class="badge-slate no-underline hover:bg-slate-200">{c}</a>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <section class="container-page section-tight">
+    {posts.length === 0 ? (
+      <p class="text-slate-500">暂无文章。</p>
+    ) : (
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {posts.map((post) => (
+          <ArticleCard
+            href={`/blog/${post.id}/`}
+            title={post.data.title}
+            description={post.data.description}
+            category={post.data.category}
+            date={post.data.pubDate}
+            tags={post.data.tags}
+          />
+        ))}
+      </div>
+    )}
+  </section>
+
+  <div class="mt-16"><Cta /></div>
+  <div class="h-16"></div>
+
+  <CollectionSchema
+    name={title}
+    description={description}
+    items={posts.map((p) => ({ name: p.data.title, url: `/blog/${p.id}/` }))}
+  />
+</BaseLayout>

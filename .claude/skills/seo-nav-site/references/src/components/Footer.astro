@@ -1,0 +1,43 @@
+---
+import { FOOTER_LINKS, SITE } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="mt-20 border-t border-slate-200 bg-slate-50/60">
+  <div class="container-page py-14">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
+      <div class="lg:pr-6">
+        <div class="flex items-center gap-2.5">
+          <span class="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-b from-tg-400 to-tg-600 text-white">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2.7 11.4 21 4.3c.9-.3 1.6.2 1.3 1.5l-3.1 14.7c-.2 1-.8 1.2-1.7.8l-4.7-3.4-2.2 2.2c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L7.2 12.7l-5-1.6c-1-.3-1.1-1 .5-1.7Z"/></svg>
+          </span>
+          <span class="text-sm font-semibold text-slate-900">Telegram中文下载</span>
+        </div>
+        <p class="mt-4 text-sm leading-6 text-slate-500">
+          Telegram（纸飞机 / 飞机）中文下载导航站，汇总各平台官方安全下载入口与简体中文设置教程。
+        </p>
+      </div>
+
+      {FOOTER_LINKS.map((col) => (
+        <div>
+          <h2 class="text-sm font-semibold text-slate-900">{col.title}</h2>
+          <ul class="mt-4 space-y-2.5">
+            {col.links.map((l) => (
+              <li>
+                <a href={l.href} class="text-sm text-slate-500 no-underline hover:text-tg-600">{l.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 flex flex-col gap-3 border-t border-slate-200 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+      <p>© {year} {SITE.domain} · 本站为第三方下载导航，所有下载均指向 Telegram 官方源（telegram.org）。Telegram® 为 Telegram FZ-LLC 商标。</p>
+      <div class="flex gap-4">
+        <a href="/sitemap-index.xml" class="text-slate-500 no-underline hover:text-tg-600">站点地图</a>
+        <a href="/rss.xml" class="text-slate-500 no-underline hover:text-tg-600">RSS</a>
+        <a href="/faq/" class="text-slate-500 no-underline hover:text-tg-600">FAQ</a>
+      </div>
+    </div>
+  </div>
+</footer>

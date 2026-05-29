@@ -1,0 +1,22 @@
+---
+import BreadcrumbSchema from './BreadcrumbSchema.astro';
+interface Props {
+  items: { name: string; href: string }[];
+}
+const { items } = Astro.props;
+---
+<nav aria-label="面包屑" class="container-page pt-6">
+  <ol class="flex flex-wrap items-center gap-1.5 text-xs text-slate-500">
+    {items.map((it, i) => (
+      <li class="flex items-center gap-1.5">
+        {i < items.length - 1 ? (
+          <a href={it.href} class="no-underline hover:text-tg-600">{it.name}</a>
+        ) : (
+          <span class="font-medium text-slate-700" aria-current="page">{it.name}</span>
+        )}
+        {i < items.length - 1 && <span class="text-slate-300">/</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
+<BreadcrumbSchema items={items} />

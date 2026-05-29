@@ -1,0 +1,44 @@
+---
+/** 内联 SVG 图标（零额外请求，利于 LCP） */
+interface Props {
+  name: 'windows' | 'android' | 'apple' | 'linux' | 'download' | 'check' | 'arrow' | 'shield' | 'bolt' | 'globe' | 'menu' | 'chevron';
+  class?: string;
+}
+const { name, class: cls = 'h-5 w-5' } = Astro.props;
+---
+{name === 'windows' && (
+  <svg class={cls} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3V5.5Zm0 13L10.5 19.6v-7H3v6Zm8.5 1.3L21 21V12.5h-9.5v7.3ZM11.5 4 21 3v8.5h-9.5V4Z"/></svg>
+)}
+{name === 'android' && (
+  <svg class={cls} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 9.5 19 7a.5.5 0 0 0-.9-.5l-1.4 2.5A8.7 8.7 0 0 0 12 8c-1.7 0-3.3.4-4.7 1L5.9 6.5A.5.5 0 1 0 5 7l1.4 2.5A8 8 0 0 0 3 16h18a8 8 0 0 0-3.4-6.5ZM8 13.8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm8 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
+)}
+{name === 'apple' && (
+  <svg class={cls} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.5-.1-2.8.9-3.6.9-.7 0-1.9-.9-3.1-.8-1.6 0-3 .9-3.8 2.4-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.4-.9-2.4-3.6ZM14 5.6c.6-.8 1-1.9.9-3-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.8-1 2.9 1 .1 2-.5 2.7-1.3Z"/></svg>
+)}
+{name === 'linux' && (
+  <svg class={cls} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c-2 0-3 1.8-3 4 0 1.4.2 2.3-.6 3.4C7 11 5.5 12.6 5.5 15c0 .9.3 1.5.3 2.2-.6.5-1.3 1-1.3 1.9 0 1.2 1.6 1.5 3 1.8 1.4.3 2.2 1.1 4.5 1.1s3.1-.8 4.5-1.1c1.4-.3 3-.6 3-1.8 0-.9-.7-1.4-1.3-1.9 0-.7.3-1.3.3-2.2 0-2.4-1.5-4-2.9-5.6-.8-1.1-.6-2-.6-3.4 0-2.2-1-4-3-4Zm-1.6 5.3c.4 0 .7.4.7.9s-.3.9-.7.9-.7-.4-.7-.9.3-.9.7-.9Zm3.2 0c.4 0 .7.4.7.9s-.3.9-.7.9-.7-.4-.7-.9.3-.9.7-.9ZM12 10.4c1 0 2.4.8 2.4 1.3 0 .3-1.4 1.1-2.4 1.1s-2.4-.8-2.4-1.1c0-.5 1.4-1.3 2.4-1.3Z"/></svg>
+)}
+{name === 'download' && (
+  <svg class={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+)}
+{name === 'check' && (
+  <svg class={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>
+)}
+{name === 'arrow' && (
+  <svg class={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+)}
+{name === 'shield' && (
+  <svg class={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+)}
+{name === 'bolt' && (
+  <svg class={cls} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>
+)}
+{name === 'globe' && (
+  <svg class={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg>
+)}
+{name === 'menu' && (
+  <svg class={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+)}
+{name === 'chevron' && (
+  <svg class={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+)}

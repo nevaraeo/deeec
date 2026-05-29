@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PlatformDownloadView from '../../components/PlatformDownloadView.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { PLATFORMS } from '../../data/platforms';
+const data = PLATFORMS.linux;
+const crumbs = [
+  { name: '首页', href: '/' },
+  { name: '下载', href: '/downloads/' },
+  { name: 'Linux', href: data.slug },
+];
+const related = [
+  { label: 'Telegram 电脑版下载', href: '/windows/' },
+  { label: 'Telegram Mac 下载', href: '/mac/' },
+  { label: 'Ubuntu 专版教程', href: '/telegram-download-for-linux-ubuntu/' },
+  { label: 'Debian 专版教程', href: '/telegram-download-for-linux-debian/' },
+  { label: 'Linux 中文设置教程', href: '/guides/telegram-chinese-language-pack/' },
+  { label: '常见问题 FAQ', href: '/faq/' },
+];
+---
+<BaseLayout title={data.title} description={data.description} keywords={data.keywords}>
+  <Breadcrumbs items={crumbs} />
+  <PlatformDownloadView data={data} />
+  <RelatedLinks links={related} />
+  <div class="mt-16"><Cta /></div>
+  <div class="h-16"></div>
+</BaseLayout>

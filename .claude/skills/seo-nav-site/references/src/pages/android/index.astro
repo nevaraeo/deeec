@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PlatformDownloadView from '../../components/PlatformDownloadView.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { PLATFORMS } from '../../data/platforms';
+const data = PLATFORMS.android;
+const crumbs = [
+  { name: '首页', href: '/' },
+  { name: '下载', href: '/downloads/' },
+  { name: '安卓 APK', href: data.slug },
+];
+const related = [
+  { label: 'Telegram 电脑版下载', href: '/windows/' },
+  { label: 'Telegram iOS 下载', href: '/ios/' },
+  { label: 'Android 15 专版教程', href: '/telegram-download-for-android-15/' },
+  { label: 'Android 14 专版教程', href: '/telegram-download-for-android-14/' },
+  { label: 'APK 安装常见问题', href: '/faq/' },
+  { label: '纸飞机中文版设置', href: '/paper-airplane-chinese/' },
+];
+---
+<BaseLayout title={data.title} description={data.description} keywords={data.keywords}>
+  <Breadcrumbs items={crumbs} />
+  <PlatformDownloadView data={data} />
+  <RelatedLinks links={related} />
+  <div class="mt-16"><Cta /></div>
+  <div class="h-16"></div>
+</BaseLayout>

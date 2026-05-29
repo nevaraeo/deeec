@@ -1,0 +1,19 @@
+---
+import Icon from './Icon.astro';
+interface Props {
+  title?: string;
+  links: { label: string; href: string }[];
+}
+const { title = '相关推荐', links } = Astro.props;
+---
+<section class="container-page section-tight" aria-label={title}>
+  <h2 class="text-xl font-semibold text-slate-900">{title}</h2>
+  <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    {links.map((l) => (
+      <a href={l.href} class="group flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 no-underline transition-colors hover:border-tg-300 hover:text-tg-700">
+        <span>{l.label}</span>
+        <Icon name="arrow" class="h-4 w-4 shrink-0 text-slate-400 transition-transform group-hover:translate-x-0.5 group-hover:text-tg-600" />
+      </a>
+    ))}
+  </div>
+</section>

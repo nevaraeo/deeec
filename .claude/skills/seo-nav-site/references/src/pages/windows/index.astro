@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PlatformDownloadView from '../../components/PlatformDownloadView.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { PLATFORMS } from '../../data/platforms';
+const data = PLATFORMS.windows;
+const crumbs = [
+  { name: '首页', href: '/' },
+  { name: '下载', href: '/downloads/' },
+  { name: 'Windows 电脑版', href: data.slug },
+];
+const related = [
+  { label: 'Telegram 安卓 APK 下载', href: '/android/' },
+  { label: 'Telegram Mac 下载', href: '/mac/' },
+  { label: 'Windows 11 专版教程', href: '/telegram-download-for-windows-11/' },
+  { label: 'Windows 10 专版教程', href: '/telegram-download-for-windows-10/' },
+  { label: 'Telegram 中文设置', href: '/guides/telegram-chinese-language-pack/' },
+  { label: 'Windows 安装图文教程', href: '/guides/install-telegram-on-windows/' },
+];
+---
+<BaseLayout title={data.title} description={data.description} keywords={data.keywords}>
+  <Breadcrumbs items={crumbs} />
+  <PlatformDownloadView data={data} />
+  <RelatedLinks links={related} />
+  <div class="mt-16"><Cta /></div>
+  <div class="h-16"></div>
+</BaseLayout>
