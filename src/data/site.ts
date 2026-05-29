@@ -9,7 +9,7 @@ export const SITE = {
   url: 'https://telegramyp.com',
   title: 'Telegram下载｜电报官网',
   description:
-    'Telegram下载官网，获取最新版电报应用，支持安卓、iOS及PC端下载安装，快速稳定连接全球用户。',
+    'Telegram 是一款主打速度与隐私保护的即时通讯软件，现已推出中文电脑版官方下载版本。支持 Windows、macOS 和 Linux 系统，提供端到端加密聊天、大文件传输、频道、群组及云端存储等功能。界面简洁流畅，中文适配完善，适合个人沟通、团队协作与信息分享。',
   defaultOgImage: '/og-default.png',
   logo: '/logo.png',
   locale: 'zh-CN',
