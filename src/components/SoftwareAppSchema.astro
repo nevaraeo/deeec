@@ -10,8 +10,10 @@ interface Props {
   fileSize?: string;
   url: string;
   featureList?: string[];
+  ratingValue?: number;
+  ratingCount?: number;
 }
-const { name, os, description, version, fileSize, url, featureList = [] } = Astro.props;
+const { name, os, description, version, fileSize, url, featureList = [], ratingValue, ratingCount } = Astro.props;
 
 // SoftwareApplication 实体，强化“可下载软件”的机器可理解度
 const schema: Record<string, unknown> = {
@@ -38,5 +40,14 @@ const schema: Record<string, unknown> = {
   },
 };
 if (featureList.length) schema.featureList = featureList;
+if (ratingValue && ratingCount) {
+  schema.aggregateRating = {
+    '@type': 'AggregateRating',
+    ratingValue,
+    ratingCount,
+    bestRating: 5,
+    worstRating: 1,
+  };
+}
 ---
 <JsonLd schema={schema} />

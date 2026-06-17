@@ -24,7 +24,10 @@ const iconMap: Record<string, 'windows' | 'android' | 'apple' | 'linux'> = {
       </div>
       <p class="text-sm leading-6 text-slate-600">{p.tagline}</p>
       <div class="mt-auto flex items-center justify-between pt-2">
-        <span class="badge-slate">v{p.version}</span>
+        <span class="inline-flex items-center gap-2">
+          <span class="badge-slate">v{p.version}</span>
+          <span class="inline-flex items-center gap-1 text-xs font-medium text-tg-600"><Icon name="shield" class="h-3.5 w-3.5" /> 官方源</span>
+        </span>
         <span class="inline-flex items-center gap-1 text-sm font-medium text-tg-600">
           下载 <Icon name="arrow" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
         </span>

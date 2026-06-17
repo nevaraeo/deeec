@@ -1,34 +1,44 @@
 ---
 import Icon from './Icon.astro';
+import { PLATFORM_LIST } from '../data/platforms';
+
+// 取各平台最新更新日期，作为首屏 freshness 信号（匹配“最新版下载”意图）
+const latestUpdated = PLATFORM_LIST.map((p) => p.updated).sort().at(-1) ?? '';
+const [uy, um] = latestUpdated.split('-');
+const updatedLabel = uy && um ? `${uy}.${um}` : '持续';
 ---
 <section class="relative overflow-hidden">
   <div class="pointer-events-none absolute inset-0 -z-10">
     <div class="absolute left-1/2 top-[-10rem] h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-tg-100/60 blur-3xl"></div>
   </div>
   <div class="container-page py-16 sm:py-24 text-center">
-    <p class="badge mx-auto">官方源 · 安全无捆绑 · 持续更新</p>
+    <p class="badge mx-auto">官方源 · 安全无捆绑 · 永久免费</p>
     <h1 class="mx-auto mt-5 max-w-3xl text-4xl font-bold leading-tight tracking-tight text-slate-900 sm:text-5xl">
-      <span class="bg-gradient-to-r from-tg-500 to-tg-700 bg-clip-text text-transparent">Telegram下载</span>｜电报官网
+      <span class="bg-gradient-to-r from-tg-500 to-tg-700 bg-clip-text text-transparent">Telegram下载</span>｜电报中文版官网
     </h1>
     <p class="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
-      Telegram 是全球热门的即时通讯软件，提供高速、安全、稳定的聊天体验。支持 Windows、macOS、Android、iPhone 等多平台使用，拥有加密聊天、大文件传输、频道、群组及云端同步等功能。本站为您提供 Telegram 中文版下载、电脑版安装教程及最新官方客户端资源，帮助用户快速安全地体验 Telegram。
+      一键获取 <strong>Telegram(电报)中文版</strong> 各平台官方原版安装包——Windows、安卓 APK、iOS、Mac、Linux 全部直连 telegram.org 官方源，安全无捆绑、永久免费。
     </p>
 
-    <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
-      <a href="/windows/" class="btn btn-lg btn-primary">
-        <Icon name="windows" class="h-5 w-5" /> Windows 电脑版
+    <!-- 智能下载：按当前设备自动推荐对应平台（JS 渐进增强，无 JS 时回退到下载总览） -->
+    <div class="mt-9 flex flex-col items-center gap-3">
+      <p id="os-hint" class="text-sm text-slate-500">为你的设备智能推荐下载</p>
+      <a id="smart-dl" href="/downloads/" class="btn btn-lg btn-primary">
+        <Icon name="download" class="h-5 w-5" /> <span id="smart-dl-label">立即下载 Telegram</span>
       </a>
-      <a href="/android/" class="btn btn-lg btn-ghost">
-        <Icon name="android" class="h-5 w-5" /> 安卓 APK
-      </a>
-      <a href="/ios/" class="btn btn-lg btn-ghost">
-        <Icon name="apple" class="h-5 w-5" /> iOS / iPhone
-      </a>
+      <div class="mt-1 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm">
+        <span class="text-slate-400">其他平台：</span>
+        <a href="/windows/" class="link-quiet inline-flex items-center gap-1"><Icon name="windows" class="h-4 w-4" /> Windows</a>
+        <a href="/android/" class="link-quiet inline-flex items-center gap-1"><Icon name="android" class="h-4 w-4" /> 安卓</a>
+        <a href="/ios/" class="link-quiet inline-flex items-center gap-1"><Icon name="apple" class="h-4 w-4" /> iOS</a>
+        <a href="/mac/" class="link-quiet inline-flex items-center gap-1"><Icon name="apple" class="h-4 w-4" /> Mac</a>
+        <a href="/linux/" class="link-quiet inline-flex items-center gap-1"><Icon name="linux" class="h-4 w-4" /> Linux</a>
+      </div>
     </div>
 
     <dl class="mx-auto mt-12 grid max-w-2xl grid-cols-3 gap-4 text-center">
       {[
-        { k: '6+', v: '支持平台' },
+        { k: updatedLabel, v: '最近更新' },
         { k: '100%', v: '官方源下载' },
         { k: '简体中文', v: '一键设置' },
       ].map((s) => (
@@ -40,3 +50,24 @@ import Icon from './Icon.astro';
     </dl>
   </div>
 </section>
+
+<script>
+  // 设备识别：根据 UA 推荐对应平台下载页（仅做导航增强，不影响无 JS 访问）
+  const ua = navigator.userAgent;
+  const map: { test: RegExp; href: string; name: string }[] = [
+    { test: /Android/i, href: '/android/', name: '安卓 APK' },
+    { test: /iPhone|iPad|iPod/i, href: '/ios/', name: 'iOS / iPhone' },
+    { test: /Macintosh|Mac OS X/i, href: '/mac/', name: 'Mac' },
+    { test: /Windows|Win64|WOW64/i, href: '/windows/', name: 'Windows 电脑版' },
+    { test: /Linux/i, href: '/linux/', name: 'Linux' },
+  ];
+  const hit = map.find((m) => m.test.test(ua));
+  if (hit) {
+    const link = document.getElementById('smart-dl') as HTMLAnchorElement | null;
+    const label = document.getElementById('smart-dl-label');
+    const hint = document.getElementById('os-hint');
+    if (link) link.href = hit.href;
+    if (label) label.textContent = `下载 Telegram ${hit.name}`;
+    if (hint) hint.textContent = `已检测到你的系统：${hit.name}`;
+  }
+</script>
