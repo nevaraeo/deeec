@@ -46,7 +46,7 @@ const blog = defineCollection({
     description: z.string(),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
-    author: z.string().default('telegramyp.com 编辑部'),
+    author: z.string().default('telegramzhvip.com 编辑部'),
     image: z.string().optional(),
     category: z.string().default('使用教程'),
     tags: z.array(z.string()).default([]),

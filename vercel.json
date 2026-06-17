@@ -9,13 +9,13 @@
     {
       "source": "/(.*)",
       "has": [{ "type": "host", "value": "telegrams.ltd" }],
-      "destination": "https://telegramyp.com/$1",
+      "destination": "https://telegramzhvip.com/$1",
       "permanent": true
     },
     {
       "source": "/(.*)",
       "has": [{ "type": "host", "value": "www.telegrams.ltd" }],
-      "destination": "https://telegramyp.com/$1",
+      "destination": "https://telegramzhvip.com/$1",
       "permanent": true
     }
   ],

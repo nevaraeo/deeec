@@ -80,7 +80,7 @@ function drawPlaneTile(ctx, x, y, size) {
   ctx.fillText('电脑版 · 安卓 · iOS · Mac · 纸飞机中文版', 96, 446);
   ctx.fillStyle = '#5fbfe6';
   ctx.font = `700 32px ${FAMILY}`;
-  ctx.fillText('telegramyp.com', 96, 560);
+  ctx.fillText('telegramzhvip.com', 96, 560);
   writeFileSync('public/og-default.png', c.toBuffer('image/png'));
   console.log(`OG image written: public/og-default.png (${W}x${H})`);
 }
@@ -96,7 +96,7 @@ function drawPlaneTile(ctx, x, y, size) {
   ctx.fillStyle = '#0f172a';
   ctx.textAlign = 'center';
   ctx.font = `700 46px ${FAMILY}`;
-  ctx.fillText('telegramyp.com', S / 2, 430);
+  ctx.fillText('telegramzhvip.com', S / 2, 430);
   writeFileSync('public/logo.png', c.toBuffer('image/png'));
   console.log(`Logo written: public/logo.png (${S}x${S})`);
 }

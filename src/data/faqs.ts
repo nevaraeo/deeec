@@ -8,7 +8,7 @@ export const CORE_FAQS: Faq[] = [
   },
   {
     q: 'Telegram 中文版从哪里下载最安全？',
-    a: '请认准 telegram.org 官方域名，或 App Store / Google Play。本站（telegramyp.com）所有下载按钮均直连官方服务器，不做二次打包、不捆绑插件。',
+    a: '请认准 telegram.org 官方域名，或 App Store / Google Play。本站（telegramzhvip.com）所有下载按钮均直连官方服务器，不做二次打包、不捆绑插件。',
   },
   {
     q: 'Telegram 有官方中文版安装包吗？',

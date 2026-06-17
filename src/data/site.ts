@@ -5,8 +5,8 @@
 
 export const SITE = {
   name: 'Telegram中文下载',
-  domain: 'telegramyp.com',
-  url: 'https://telegramyp.com',
+  domain: 'telegramzhvip.com',
+  url: 'https://telegramzhvip.com',
   title: 'Telegram下载｜电报官网',
   description: '',
   defaultOgImage: '/og-default.png',
@@ -26,8 +26,8 @@ export const SITE = {
     'telegram下载安装',
   ],
   publisher: {
-    name: 'telegramyp.com',
-    url: 'https://telegramyp.com',
+    name: 'telegramzhvip.com',
+    url: 'https://telegramzhvip.com',
   },
 } as const;
 
