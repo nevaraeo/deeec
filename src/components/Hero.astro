@@ -1,6 +1,7 @@
 ---
 import Icon from './Icon.astro';
 import { PLATFORM_LIST } from '../data/platforms';
+import { OFFICIAL } from '../data/site';
 
 // 取各平台最新更新日期，作为首屏 freshness 信号（匹配“最新版下载”意图）
 const latestUpdated = PLATFORM_LIST.map((p) => p.updated).sort().at(-1) ?? '';
@@ -17,7 +18,7 @@ const updatedLabel = uy && um ? `${uy}.${um}` : '持续';
       <span class="bg-gradient-to-r from-tg-500 to-tg-700 bg-clip-text text-transparent">Telegram下载</span>｜电报中文版官网
     </h1>
     <p class="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
-      一键获取 <strong>Telegram(电报)中文版</strong> 各平台官方原版安装包——Windows、安卓 APK、iOS、Mac、Linux 全部直连 telegram.org 官方源，安全无捆绑、永久免费。
+      <strong>Telegram(电报)</strong> 是一款注重隐私与速度的即时通讯软件，现已推出<strong>中文版官方下载</strong>，支持 Windows、macOS、Linux 电脑版及 Android、iOS 移动端，提供端到端加密聊天、超大文件传输（最高 2GB）、频道、群组、云存储等强大功能。界面简洁流畅，中文显示完美，适合个人隐私保护、团队协作及信息分享。
     </p>
 
     <!-- 智能下载：按当前设备自动推荐对应平台（JS 渐进增强，无 JS 时回退到下载总览） -->
@@ -33,12 +34,13 @@ const updatedLabel = uy && um ? `${uy}.${um}` : '持续';
         <a href="/ios/" class="link-quiet inline-flex items-center gap-1"><Icon name="apple" class="h-4 w-4" /> iOS</a>
         <a href="/mac/" class="link-quiet inline-flex items-center gap-1"><Icon name="apple" class="h-4 w-4" /> Mac</a>
         <a href="/linux/" class="link-quiet inline-flex items-center gap-1"><Icon name="linux" class="h-4 w-4" /> Linux</a>
+        <a href={OFFICIAL.web} target="_blank" rel="noopener" class="link-quiet inline-flex items-center gap-1"><Icon name="globe" class="h-4 w-4" /> 网页版</a>
       </div>
     </div>
 
     <dl class="mx-auto mt-12 grid max-w-2xl grid-cols-3 gap-4 text-center">
       {[
-        { k: updatedLabel, v: '最近更新' },
+        { k: updatedLabel, v: '客户端更新' },
         { k: '100%', v: '官方源下载' },
         { k: '简体中文', v: '一键设置' },
       ].map((s) => (

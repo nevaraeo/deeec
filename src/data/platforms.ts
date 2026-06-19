@@ -39,8 +39,6 @@ export interface PlatformData {
   deepDive: { heading: string; paragraphs: string[] }[]; // 平台特有的权威语义段
 }
 
-const TODAY = '2026-05-18';
-
 export const PLATFORMS: Record<Platform, PlatformData> = {
   windows: {
     key: 'windows',
@@ -57,7 +55,7 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
     version: '5.12.3',
     fileSize: '约 48 MB',
     requirements: 'Windows 11 / 10 / 8 / 7（64 位）',
-    updated: TODAY,
+    updated: '2026-05-12',
     downloadUrl: OFFICIAL.windows,
     altUrl: OFFICIAL.windowsPortable,
     altLabel: '便携版（Portable）',
@@ -122,7 +120,7 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
     version: '11.2.0',
     fileSize: '约 72 MB',
     requirements: 'Android 6.0 及以上',
-    updated: TODAY,
+    updated: '2026-05-10',
     downloadUrl: OFFICIAL.android,
     altUrl: OFFICIAL.androidPlay,
     altLabel: 'Google Play 安装',
@@ -187,7 +185,7 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
     version: '11.2',
     fileSize: '约 210 MB',
     requirements: 'iOS 15.0 及以上 / iPadOS 15.0 及以上',
-    updated: TODAY,
+    updated: '2026-05-09',
     downloadUrl: OFFICIAL.ios,
     altUrl: OFFICIAL.macAppStore,
     altLabel: 'App Store 页面',
@@ -252,7 +250,7 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
     version: '11.2.1',
     fileSize: '约 65 MB',
     requirements: 'macOS 11 Big Sur 及以上（Apple Silicon / Intel）',
-    updated: TODAY,
+    updated: '2026-05-11',
     downloadUrl: OFFICIAL.mac,
     altUrl: OFFICIAL.macAppStore,
     altLabel: 'Mac App Store',
@@ -317,7 +315,7 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
     version: '5.12.3',
     fileSize: '约 50 MB',
     requirements: 'glibc 2.31+ 的 64 位发行版（Ubuntu/Debian/Fedora/Arch 等）',
-    updated: TODAY,
+    updated: '2026-05-12',
     downloadUrl: OFFICIAL.linux,
     intro: [
       'Telegram Linux 版以官方静态二进制方式发布，解压即用，几乎兼容所有主流发行版，也可通过 Snap 或 Flatpak 安装。',

@@ -11,7 +11,7 @@ import JsonLd from '../components/JsonLd.astro';
 import SoftwareAppSchema from '../components/SoftwareAppSchema.astro';
 import Icon from '../components/Icon.astro';
 import { SITE } from '../data/site';
-import { DOWNLOAD_FAQS } from '../data/faqs';
+import { CORE_FAQS, DOWNLOAD_FAQS } from '../data/faqs';
 import { PLATFORM_LIST } from '../data/platforms';
 import { getCollection } from 'astro:content';
 
@@ -53,6 +53,23 @@ const howToSchema = {
     name: s.t,
     text: s.d,
   })),
+};
+
+// 首页 FAQ：置顶“纸飞机=Telegram”实体等价直答（吃精选摘要），其余为纯下载意图问答
+const homeFaqs = [CORE_FAQS[0], ...DOWNLOAD_FAQS];
+
+// 页面级更新时间信号：取各平台最新更新日期（与 Hero、版本表同源）
+const lastUpdated = PLATFORM_LIST.map((p) => p.updated).sort().at(-1) ?? '';
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${SITE.url}/#webpage`,
+  url: `${SITE.url}/`,
+  name: SITE.title,
+  description: SITE.description,
+  inLanguage: 'zh-CN',
+  isPartOf: { '@id': `${SITE.url}/#website` },
+  dateModified: lastUpdated,
 };
 ---
 <BaseLayout title={SITE.title} description={SITE.description} keywords={[...SITE.keywords]}>
@@ -99,6 +116,7 @@ const howToSchema = {
       </table>
     </div>
     <p class="mt-3 text-xs text-slate-500">版本号与体积为参考值，请以官方实际发布为准。Telegram 全平台免费，账号云端互通，可多端同时登录。</p>
+    <p class="mt-2 text-sm"><a href="/blog/telegram-latest-version/" class="font-medium text-tg-600 no-underline hover:text-tg-700">查看各平台最新版本更新说明 →</a></p>
   </Section>
 
   <Section
@@ -120,14 +138,41 @@ const howToSchema = {
     <p class="mt-4 flex items-center gap-2 text-xs text-slate-500">
       <Icon name="shield" class="h-4 w-4 text-tg-500" />
       安全提示：请只从 telegram.org 官方地址或 App Store / Google Play 下载，切勿安装第三方“汉化破解版”，以免账号被盗。详见
-      <a href="/blog/telegram-download-safety/" class="text-tg-600 no-underline hover:text-tg-700">下载安全指南</a>。
+      <a href="/blog/telegram-download-safety/" class="text-tg-600 no-underline hover:text-tg-700">下载安全指南</a>
+      与<a href="/guides/" class="text-tg-600 no-underline hover:text-tg-700">各平台安装教程</a>。
     </p>
   </Section>
 
   <Section eyebrow="关于 Telegram" title="关于 Telegram 与官方下载">
     <div class="article max-w-3xl">
-      <p>Telegram（中文用户常称<strong>“纸飞机”</strong>或<strong>“电报”</strong>）是一款主打隐私、安全与速度的跨平台即时通讯应用，提供 Windows、macOS、Linux 桌面端与 Android、iOS 移动端官方客户端，<strong>完全免费</strong>。它支持云端多端同步、最多 20 万人的超大群组与频道、单文件最高 2GB 的传输，以及端到端加密的“秘密聊天”。</p>
-      <p>下载 Telegram 请认准 <strong>telegram.org</strong> 官方域名，或通过 App Store / Google Play 获取。本站（telegramzhvip.com）汇总各平台官方下载入口，<strong>不托管安装包、不二次打包</strong>，确保你下载到安全无篡改的官方客户端。</p>
+      <p>Telegram（中文用户常称<a href="/paper-airplane-download/"><strong>“纸飞机”</strong></a>或<a href="/dianbao-download/"><strong>“电报”</strong></a>）是一款主打隐私、安全与速度的跨平台即时通讯应用，提供 Windows、macOS、Linux 桌面端与 Android、iOS 移动端官方客户端，<strong>完全免费</strong>。它支持云端多端同步、最多 20 万人的超大群组与频道、单文件最高 2GB 的传输，以及端到端加密的“秘密聊天”。</p>
+      <p>下载 Telegram 请认准 <strong>telegram.org</strong> 官方域名，或通过 App Store / Google Play 获取。本站（telegramzhvip.com）汇总各平台官方下载入口，<strong>不托管安装包、不二次打包</strong>，确保你下载到安全无篡改的官方客户端。下载完成后，可按 <a href="/telegram-chinese/">Telegram 简体中文设置教程</a> 一键切换为中文界面。</p>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="功能特性"
+    title="为什么选择 Telegram"
+    lead="隐私优先、极速稳定、全平台云端互通 —— 这些核心能力让 Telegram 成为全球数亿用户的即时通讯首选。"
+  >
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {[
+        { i: 'lock', t: '端到端加密', d: '“秘密聊天”采用端到端加密、支持阅后即焚，配合两步验证，隐私牢牢掌握在自己手中。' },
+        { i: 'bolt', t: '极速体验', d: '全球分布式服务器集群，消息与文件秒级送达，弱网环境下依然流畅稳定。' },
+        { i: 'devices', t: '多端云同步', d: '手机、电脑、平板可同时在线，消息云端实时同步，换机登录即恢复，不丢记录。' },
+        { i: 'users', t: '超大群组', d: '单个群组最多容纳 20 万人，支持管理员权限、话题分区与机器人自动化。' },
+        { i: 'megaphone', t: '频道广播', d: '创建频道一对多发布内容，订阅人数无上限，轻松触达海量受众。' },
+        { i: 'file', t: '大文件传输', d: '单个文件最高 2GB（Premium 4GB），发送视频、资料与安装包无需压缩。' },
+        { i: 'cloud', t: '云端存储', d: '聊天记录与媒体文件存于 Telegram 云端，不占用本地空间，随时随地取用。' },
+        { i: 'code', t: '开源透明', d: '客户端代码开源、通信协议公开，安全性可被全球开发者独立审计。' },
+        { i: 'palette', t: '自由定制', d: '海量主题、贴纸与动画表情，聊天文件夹与界面布局随心定制。' },
+      ].map((c) => (
+        <div class="card">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-tg-50 text-tg-600"><Icon name={c.i as any} class="h-5 w-5" /></span>
+          <h3 class="mt-4 text-base font-semibold text-slate-900">{c.t}</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">{c.d}</p>
+        </div>
+      ))}
     </div>
   </Section>
 
@@ -165,12 +210,13 @@ const howToSchema = {
     </Section>
   )}
 
-  <FaqList faqs={DOWNLOAD_FAQS} title="Telegram 下载常见问题" />
+  <FaqList faqs={homeFaqs} title="Telegram 下载常见问题" />
 
   <div class="mt-16"><Cta /></div>
   <div class="h-16"></div>
 
-  <FaqSchema faqs={DOWNLOAD_FAQS} />
+  <FaqSchema faqs={homeFaqs} />
+  <JsonLd schema={webPageSchema} />
   <JsonLd schema={itemListSchema} />
   <JsonLd schema={howToSchema} />
   <SoftwareAppSchema

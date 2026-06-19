@@ -7,7 +7,7 @@ export const SITE = {
   name: 'Telegram中文下载',
   domain: 'telegramzhvip.com',
   url: 'https://telegramzhvip.com',
-  title: 'Telegram下载 | 电报中文版官方下载-安卓/电脑版/iOS',
+  title: 'Telegram下载 | 电报中文版官网',
   description: 'Telegram下载官方中文版，提供Telegram安卓、iOS、Windows、Mac电脑版客户端下载与安装教程。体验高速、安全、稳定的即时通讯服务，支持群组聊天、频道订阅、文件传输及多设备同步。',
   defaultOgImage: '/og-default.png',
   logo: '/logo.png',
