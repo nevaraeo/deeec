@@ -8,7 +8,7 @@ export const SITE = {
   domain: 'telegramzhvip.com',
   url: 'https://telegramzhvip.com',
   title: 'Telegram下载 | 电报中文版官网',
-  description: 'Telegram下载，提供电报（纸飞机）中文版的 Windows、安卓、iOS、Mac 官方客户端下载与中文设置教程，直连 telegram.org 官方源，安全无捆绑、永久免费。',
+  description: 'Telegram（电报）中文版官网提供最新版 Telegram 下载，支持 Windows、Mac、Android、iPhone 和网页版。获取安全稳定的即时通讯体验，享受高速聊天、群组、频道及文件传输功能，一键下载安装最新版 Telegram。',
   defaultOgImage: '/og-default.png',
   logo: '/logo.png',
   locale: 'zh-CN',
