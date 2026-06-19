@@ -70,4 +70,4 @@ Telegram 官方包默认是英文，所谓“Telegram 中文版”其实就是**
 
 熟悉基础后，可以再了解这些进阶玩法：用 [机器人（Bot）](/blog/telegram-bot/) 做查询与自动化、用 [贴纸与表情包](/blog/telegram-stickers/) 让聊天更生动，以及 [Premium 会员](/blog/telegram-premium/) 提供的更高上限与专属特权。
 
-还没安装？从 [下载中心](/downloads/) 按设备选择官方客户端开始吧。
+还没安装？从 [Telegram下载](/) 按设备选择官方客户端开始吧。

@@ -5,6 +5,7 @@ import FaqList from './FaqList.astro';
 import Changelog from './Changelog.astro';
 import FaqSchema from './FaqSchema.astro';
 import SoftwareAppSchema from './SoftwareAppSchema.astro';
+import JsonLd from './JsonLd.astro';
 import Icon from './Icon.astro';
 
 interface Props {
@@ -12,6 +13,20 @@ interface Props {
 }
 const { data } = Astro.props;
 const fmt = (d: string) => new Date(d).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+
+// HowTo 结构化数据：逐平台安装步骤，吃“如何下载/安装 Telegram XXX”的富结果
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: `如何下载并安装 ${data.name}`,
+  description: `${data.shortName} 官方客户端的下载与安装步骤。`,
+  step: data.steps.map((s, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: s.title,
+    text: s.body,
+  })),
+};
 ---
 <!-- 头部：H1 + 下载 CTA -->
 <section class="container-page pt-8 pb-4">
@@ -120,3 +135,4 @@ const fmt = (d: string) => new Date(d).toLocaleDateString('zh-CN', { year: 'nume
   featureList={data.features.map((f) => f.title)}
 />
 <FaqSchema faqs={data.faqs} />
+<JsonLd schema={howToSchema} />

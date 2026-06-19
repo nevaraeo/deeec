@@ -55,4 +55,4 @@ faqs:
 
 ## 开始体验
 
-机器人是**免费功能**，所有平台通用。还没安装 Telegram？先从 [下载中心](/downloads/) 获取官方客户端，按 [中文设置教程](/guides/telegram-chinese-language-pack/) 切换简体中文；新手可先看 [Telegram 怎么用](/blog/telegram-how-to-use/) 打好基础，再来玩转机器人。
+机器人是**免费功能**，所有平台通用。还没安装 Telegram？先从 [Telegram 中文版下载](/) 获取官方客户端，按 [中文设置教程](/guides/telegram-chinese-language-pack/) 切换简体中文；新手可先看 [Telegram 怎么用](/blog/telegram-how-to-use/) 打好基础，再来玩转机器人。

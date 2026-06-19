@@ -58,4 +58,4 @@ faqs:
 - 设置一个**用户名（@username）**，这样群里其他人只看到你的名字和用户名，**看不到你的手机号**；
 - 对群内的陌生链接、不明文件保持警惕，不随意点击下载（详见 [Telegram 安全设置指南](/blog/telegram-liangbu-yanzheng-anquan/)）。
 
-还没安装 Telegram？先从 [下载中心](/downloads/) 获取官方客户端，按 [中文设置教程](/guides/telegram-chinese-language-pack/) 切换简体中文，再看 [新手入门指南](/blog/telegram-how-to-use/) 熟悉基本操作。
+还没安装 Telegram？先从 [Telegram 中文版下载](/) 获取官方客户端，按 [中文设置教程](/guides/telegram-chinese-language-pack/) 切换简体中文，再看 [新手入门指南](/blog/telegram-how-to-use/) 熟悉基本操作。

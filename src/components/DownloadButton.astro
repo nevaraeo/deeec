@@ -1,26 +1,31 @@
 ---
 import Icon from './Icon.astro';
 interface Props {
-  // href 暂不渲染为链接：下载入口已停用、点击不跳转，后续可由后台统一接入
   href?: string;
   label: string;
   sub?: string;
   variant?: 'primary' | 'ghost';
 }
-const { label, sub, variant = 'primary' } = Astro.props;
+const { href, label, sub, variant = 'primary' } = Astro.props;
+const cls = [
+  'btn btn-lg w-full no-underline sm:w-auto',
+  variant === 'primary' ? 'btn-primary' : 'btn-ghost',
+];
 ---
-<button
-  type="button"
-  class:list={[
-    'btn btn-lg w-full cursor-default sm:w-auto',
-    variant === 'primary' ? 'btn-primary' : 'btn-ghost',
-  ]}
-  data-download
-  aria-disabled="true"
->
-  <Icon name="download" class="h-5 w-5" />
-  <span class="flex flex-col items-start leading-tight">
-    <span>{label}</span>
-    {sub && <span class="text-[11px] font-normal opacity-80">{sub}</span>}
-  </span>
-</button>
+{href ? (
+  <a href={href} target="_blank" rel="noopener noreferrer" class:list={cls} data-download>
+    <Icon name="download" class="h-5 w-5" />
+    <span class="flex flex-col items-start leading-tight">
+      <span>{label}</span>
+      {sub && <span class="text-[11px] font-normal opacity-80">{sub}</span>}
+    </span>
+  </a>
+) : (
+  <button type="button" class:list={[...cls, 'cursor-default']} data-download aria-disabled="true">
+    <Icon name="download" class="h-5 w-5" />
+    <span class="flex flex-col items-start leading-tight">
+      <span>{label}</span>
+      {sub && <span class="text-[11px] font-normal opacity-80">{sub}</span>}
+    </span>
+  </button>
+)}

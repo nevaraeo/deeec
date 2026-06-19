@@ -81,4 +81,4 @@ Telegram（中文用户常称“纸飞机”“电报”）由官方团队高频
 
 ---
 
-还没安装，或想换台设备体验最新版？从 [下载中心](/downloads/) 按你的系统选择官方客户端开始吧。安装完成后，记得顺手 [设置简体中文](/guides/telegram-chinese-language-pack/) 并 [开启两步验证](/blog/telegram-liangbu-yanzheng-anquan/)，把账号一并保护好。
+还没安装，或想换台设备体验最新版？从 [Telegram下载](/) 按你的系统选择官方客户端开始吧。安装完成后，记得顺手 [设置简体中文](/guides/telegram-chinese-language-pack/) 并 [开启两步验证](/blog/telegram-liangbu-yanzheng-anquan/)，把账号一并保护好。

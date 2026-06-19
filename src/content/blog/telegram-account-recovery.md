@@ -55,4 +55,4 @@ faqs:
 
 > ⚠️ 删除前请先备份重要内容——把要留的文件、记录转存到 [收藏夹](/blog/telegram-file-transfer/) 或导出保存，删除操作无法撤销。
 
-如果只是想重新开始，删除后可从 [下载中心](/downloads/) 重新安装，并按 [注册教程](/blog/telegram-zhuce-jiaocheng/) 重新登录。
+如果只是想重新开始，删除后可从 [Telegram下载](/) 重新安装，并按 [注册教程](/blog/telegram-zhuce-jiaocheng/) 重新登录。

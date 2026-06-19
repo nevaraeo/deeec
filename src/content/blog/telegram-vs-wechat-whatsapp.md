@@ -51,4 +51,4 @@ Telegram（纸飞机）、微信、WhatsApp 经常被放在一起比较，但说
 
 很多人其实是“组合使用”：微信处理国内事务，Telegram 用于社群、资讯与跨平台协作。想用好 Telegram 的隐私能力，见 [Telegram 安全设置指南](/blog/telegram-liangbu-yanzheng-anquan/)。
 
-想体验 Telegram？从 [下载中心](/downloads/) 获取官方客户端，按 [中文设置教程](/guides/telegram-chinese-language-pack/) 切换简体中文，新手可看 [Telegram 怎么用](/blog/telegram-how-to-use/)。
+想体验 Telegram？从 [Telegram下载](/) 获取官方客户端，按 [中文设置教程](/guides/telegram-chinese-language-pack/) 切换简体中文，新手可看 [Telegram 怎么用](/blog/telegram-how-to-use/)。

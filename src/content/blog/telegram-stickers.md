@@ -60,4 +60,4 @@ faqs:
 
 - 贴纸是**免费功能**、所有平台通用、云端同步；
 - 想要更多高级贴纸包与动态自定义表情，可了解 [Telegram Premium](/blog/telegram-premium/)；
-- 还没装好 Telegram？从 [下载中心](/downloads/) 获取官方客户端，新手可先看 [Telegram 怎么用](/blog/telegram-how-to-use/)。
+- 还没装好 Telegram？从 [Telegram下载](/) 获取官方客户端，新手可先看 [Telegram 怎么用](/blog/telegram-how-to-use/)。

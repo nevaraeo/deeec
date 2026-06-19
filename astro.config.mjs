@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { readFileSync, readdirSync } from 'node:fs';
+import rehypeAutolinkKeywords from './src/lib/rehype-autolink-keywords.mjs';
 
 // 生产域名 —— 用于 canonical / sitemap / RSS / OG 绝对地址
 const SITE = 'https://telegramzhvip.com';
@@ -63,6 +64,10 @@ export default defineConfig({
   site: SITE,
   // 目录式 URL：/windows/  /faq/  对 Google 收录最友好
   trailingSlash: 'always',
+  // 正文关键词自动内链（首次出现、SEO 安全）：telegram下载→主页、telegram电脑版下载→/windows/
+  markdown: {
+    rehypePlugins: [rehypeAutolinkKeywords],
+  },
   build: {
     format: 'directory',
     inlineStylesheets: 'auto',

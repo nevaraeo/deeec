@@ -55,4 +55,4 @@ faqs:
 - 善用 [Telegram 机器人](/blog/telegram-bot/) 实现自动欢迎语、入群审核、防广告与投票，省去大量人工；
 - 关注账号与社群安全，给自己开启两步验证（参考 [安全设置指南](/blog/telegram-liangbu-yanzheng-anquan/)）。
 
-还没安装 Telegram？从 [下载中心](/downloads/) 获取官方客户端，新手可先看 [Telegram 怎么用](/blog/telegram-how-to-use/) 打好基础。
+还没安装 Telegram？从 [Telegram下载](/) 获取官方客户端，新手可先看 [Telegram 怎么用](/blog/telegram-how-to-use/) 打好基础。

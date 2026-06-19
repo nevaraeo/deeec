@@ -49,7 +49,7 @@ export const PLATFORMS: Record<Platform, PlatformData> = {
     title: 'Telegram电脑版下载 - Windows 11/10 中文版客户端',
     description:
       'Telegram 电脑版下载权威指南。面向 Windows 11/10/8/7（64 位）的官方桌面客户端，提供安装版与便携版两种下载入口，并附简体中文设置完整步骤。Telegram 在中文圈常被称为“纸飞机”，本页所有下载地址均指向 telegram.org 官方源，安全无捆绑。',
-    keywords: ['telegram电脑版下载', 'telegram下载', 'telegram中文版下载', 'telegram windows', '纸飞机电脑版'],
+    keywords: ['telegram电脑版下载', 'telegram下载', 'telegram中文版下载', 'telegram windows', 'telegram windows下载', 'telegram pc版', '电报电脑版', '纸飞机电脑版'],
     icon: 'windows',
     tagline: '面向 Windows 的桌面客户端，支持多账号、云同步与端到端加密私聊。',
     version: '5.12.3',

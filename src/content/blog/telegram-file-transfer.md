@@ -48,4 +48,4 @@ faqs:
 
 只要两台设备登录同一账号，通过收藏夹或直接互发消息，就能在设备间**秒传文件，不用数据线、不用第三方工具**。这背后是 Telegram 的云端同步机制（原理见 [多设备同步](/blog/telegram-duo-shebei-tongbu/)）。
 
-还没在多端装好 Telegram？从 [下载中心](/downloads/) 获取官方客户端，按 [中文设置教程](/guides/telegram-chinese-language-pack/) 切换简体中文即可开始。
+还没在多端装好 Telegram？从 [Telegram 下载入口](/) 获取官方客户端，按 [中文设置教程](/guides/telegram-chinese-language-pack/) 切换简体中文即可开始。
