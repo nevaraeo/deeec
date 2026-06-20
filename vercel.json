@@ -17,6 +17,11 @@
       "has": [{ "type": "host", "value": "www.telegrams.ltd" }],
       "destination": "https://telegramzhvip.com/$1",
       "permanent": true
+    },
+    {
+      "source": "/telegram-launched-two-new-web-clients-for-mobile-and-desktop-devices",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "headers": [
