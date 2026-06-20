@@ -20,6 +20,12 @@
     },
     {
       "source": "/telegram-launched-two-new-web-clients-for-mobile-and-desktop-devices",
+      "has": [{ "type": "host", "value": "telegramm.app" }],
+      "destination": "https://telegramzhvip.com/",
+      "permanent": true
+    },
+    {
+      "source": "/telegram-launched-two-new-web-clients-for-mobile-and-desktop-devices",
       "destination": "/",
       "permanent": true
     }
