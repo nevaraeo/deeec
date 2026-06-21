@@ -32,5 +32,5 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://telegramzhvip.com/sitemap-index.xml
-Sitemap: https://telegramzhvip.com/sitemap.txt
+Sitemap: https://www.telegramzhvip.com/sitemap-index.xml
+Sitemap: https://www.telegramzhvip.com/sitemap.txt

@@ -55,7 +55,7 @@ vercel --prod     # 生产部署
 ```
 
 部署后请在 [Google Search Console](https://search.google.com/search-console) 提交：
-`https://telegramzhvip.com/sitemap-index.xml`
+`https://www.telegramzhvip.com/sitemap-index.xml`
 
 ---
 

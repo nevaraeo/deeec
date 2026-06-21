@@ -9,19 +9,19 @@
     {
       "source": "/(.*)",
       "has": [{ "type": "host", "value": "telegrams.ltd" }],
-      "destination": "https://telegramzhvip.com/$1",
+      "destination": "https://www.telegramzhvip.com/$1",
       "permanent": true
     },
     {
       "source": "/(.*)",
       "has": [{ "type": "host", "value": "www.telegrams.ltd" }],
-      "destination": "https://telegramzhvip.com/$1",
+      "destination": "https://www.telegramzhvip.com/$1",
       "permanent": true
     },
     {
       "source": "/telegram-launched-two-new-web-clients-for-mobile-and-desktop-devices",
       "has": [{ "type": "host", "value": "telegramm.app" }],
-      "destination": "https://telegramzhvip.com/",
+      "destination": "https://www.telegramzhvip.com/",
       "permanent": true
     },
     {
